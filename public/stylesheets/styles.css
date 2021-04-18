@@ -1,0 +1,24 @@
+header{
+  background-color: darkseagreen;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+body {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+footer{
+  background-color: darkseagreen;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}

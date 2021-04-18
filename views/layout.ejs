@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <title>Green Pick</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!--    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">-->
+
+    <%# Bootstrap style sheet %>
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet" type="text/css" />
+
+    <%# Font %>
+
+    <%# Icons %>
+
+    <%# Custom style sheets - link here to overwrite bootstrap %>
+    <link href="/stylesheets/styles.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <div>
+        <%- include ('./partials/header') %>
+        <main> <%- body %> </main>
+        <%- include ('./partials/footer') %>
+    </div>
+</body>
+
+</html>
+<!--layout.ejs serves as the application's main styling and navigation foundation-->
