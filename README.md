@@ -1,3 +1,5 @@
-# WTAT
+# Green Pick
 
-The application that we build as part of our course WtAt
+Green Pick is the application we build as part of our course WTAT Summer Semester 2021
+
+Green Pick provides eco-friendly, sustainable alternatives to everyday products.
