@@ -1,0 +1,23 @@
+{
+  "name": "greenpick",
+  "version": "1.0.0",
+  "description": "Web application for sustainable alternatives",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimc0de/GreenPick.git"
+  },
+  "author": "Daria, Kim, Ly, Stefie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kimc0de/GreenPick/issues"
+  },
+  "homepage": "https://github.com/kimc0de/GreenPick#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
