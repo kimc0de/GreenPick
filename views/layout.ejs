@@ -18,14 +18,15 @@
 
     <%# Custom style sheets - link here to overwrite bootstrap %>
     <link href="/stylesheets/styles.css" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/app_card.css" rel="stylesheet" type="text/css" />
+
 
 </head>
 
 <body>
     <div>
-        <%- include ('./partials/header') %>
-        <main> <%- body %> </main>
-        <%- include ('./partials/footer') %>
+        <%- include ('./components/layout/header') %>
+        <main class="container"> <%- body %> </main>
     </div>
 </body>
 

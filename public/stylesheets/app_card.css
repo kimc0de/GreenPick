@@ -1,0 +1,44 @@
+#suggestedAppsHeader {
+    letter-spacing: 0.1rem;
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+    margin-top: 2.5rem;
+}
+
+.card-body {
+    margin-bottom: 1rem;
+}
+
+.card-body h2 {
+    font-size: 1.5rem;
+}
+
+.category-badge-shopping {
+    background-color: #d77d3b;
+    border-radius: 15px;
+}
+
+.category-shopping {
+    background-color: rgba(215,125,59,0.26);
+    border-radius: 15px;
+}
+
+.category-food {
+    background-color: rgba(55,126,63,0.26);
+    border-radius: 15px;
+}
+
+.category-badge-food {
+    background-color: #377E3F;
+    border-radius: 15px;
+}
+
+.appLogo {
+    flex: none;
+    background-size: cover;
+    background-position: center center;
+    width: 100px;
+    height: 100px;
+    margin-right: 16px;
+    border-radius: 15px;
+}
