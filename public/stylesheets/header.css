@@ -3,7 +3,6 @@ header {
   position: sticky;
   width: 100%;
   height: var(--header-height);
-  text-align: center;
   border-bottom: 1px solid var(--line);
 }
 
@@ -47,18 +46,48 @@ header .nav-link.btn-outline-primary:hover {
 
 /* Burger menu icon */
 header .navbar-toggler-icon {
-  width: 3em;
-  height: 2em;
+  width: 2.5em;
+  height: 2.5em;
   background-color: var(--button-primary);
   border-radius: 5px;
 }
 
-/* smaller font-sizes for mobile screen */
+/* Smaller font-sizes for mobile screen */
 @media (max-width: 576px) {
-  .headerItem {
-    font-size: 2rem;
+  header .navbar {
+    width: 95%;
   }
+
   header .nav-link {
     font-size: 1rem;
+  }
+
+  header .navbar-toggler-icon {
+    width: 2em;
+    height: 2em;
+  }
+
+  header img {
+    width: 80%;
+    height: 80%;
+  }
+}
+
+@media (max-width: 400px) {
+  header {
+    height: var(--header-mini);
+  }
+
+  header .navbar {
+    height: var(--header-mini);
+  }
+
+  header .navbar-toggler-icon {
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  header #brand-logo{
+    width: 70%;
   }
 }

@@ -1,5 +1,6 @@
 :root {
   --header-height: 125px;
+  --header-mini: 100px;
 
   --button-primary: #639c70;
   --button-secondary: #E7E7E7;
