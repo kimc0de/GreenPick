@@ -1,0 +1,64 @@
+header {
+  background-color: #FFFFFF;
+  position: sticky;
+  width: 100%;
+  height: var(--header-height);
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+
+header .navbar {
+  height: var(--header-height);
+  width: 90%;
+  padding: 10px;
+  margin: 0 auto;
+  position: relative;
+}
+
+header .nav-link.btn {
+  width: 150px;
+  margin: 0 15px;
+  font-weight: 400;
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 1.2rem;
+}
+
+/* Sign up button */
+header .nav-link.btn-primary {
+  background-color: var(--button-primary);
+  border-color: var(--button-primary);
+  color: white !important;
+}
+
+header .nav-link.btn-primary:hover {
+  background-color: var(--button-hover);
+}
+
+/* Log in button */
+header .nav-link.btn-outline-primary {
+  border-color: var(--button-primary);
+  color: var(--text-primary) !important;
+}
+
+header .nav-link.btn-outline-primary:hover {
+  color: white !important;
+  background-color: var(--button-primary);
+}
+
+/* Burger menu icon */
+header .navbar-toggler-icon {
+  width: 3em;
+  height: 2em;
+  background-color: var(--button-primary);
+  border-radius: 5px;
+}
+
+/* smaller font-sizes for mobile screen */
+@media (max-width: 576px) {
+  .headerItem {
+    font-size: 2rem;
+  }
+  header .nav-link {
+    font-size: 1rem;
+  }
+}
