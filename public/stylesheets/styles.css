@@ -1,23 +1,40 @@
-header{
-  background-color: darkseagreen;
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
+:root {
+  --header-height: 125px;
+  --header-mini: 100px;
+
+  --button-primary: #639c70;
+  --button-secondary: #E7E7E7;
+  --button-hover: #2E7840;
+
+  --background-user: #CDDDCE;
+  --background-message: #EEF8F3;
+
+  --input-primary: #E1ECE2;
+  --icon: #9BBF9F;
+  --line: #9FCFA4;
+
+  --text-primary: #456E4F;
+  --text-secondary: #606060;
+  --text-placeholder: #A7A7A7;
+
+  /*  Categories colors */
+  --social-dark: #C94744;
+  --social-light: #F1D1D0;
+  --food-dark: #377E3F;
+  --food-light: #9EC2A8;
+  --lifestyle-dark: #F1CA32;
+  --lifestyle-light: #FBF1CA;
+  --shopping-dark: #D77D3B;
+  --shopping-light: #F5DECD;
+  --household-dark: #803364;
+  --household-light: #DFCBD7;
+  --transport-dark: #335380;
+  --transport-light: #CCD3DE;
 }
 
 body {
   height: 100%;
   width: 100%;
   position: absolute;
-}
-
-footer{
-  background-color: darkseagreen;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
+  overflow-x: hidden;
 }

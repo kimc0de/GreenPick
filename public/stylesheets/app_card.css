@@ -13,24 +13,70 @@
     font-size: 1.5rem;
 }
 
-.category-badge-shopping {
-    background-color: #d77d3b;
+.category-social {
+    background-color: var(--social-light);
     border-radius: 15px;
 }
 
+.category-badge-social {
+    background-color: var(--social-dark);
+    border-radius: 15px;
+    padding: 0.25rem 1rem;
+}
+
+.category-lifestyle {
+    background-color: var(--lifestyle-light);
+    border-radius: 15px;
+}
+
+.category-badge-lifestyle {
+    background-color: var(--lifestyle-dark);
+    border-radius: 15px;
+    padding: 0.25rem 1rem;
+}
+
+.category-badge-shopping {
+    background-color: var(--shopping-dark);
+    border-radius: 15px;
+    padding: 0.25rem 1rem;
+}
+
 .category-shopping {
-    background-color: rgba(215,125,59,0.26);
+    background-color: var(--shopping-light);
     border-radius: 15px;
 }
 
 .category-food {
-    background-color: rgba(55,126,63,0.26);
+    background-color: var(--food-light);
     border-radius: 15px;
 }
 
 .category-badge-food {
-    background-color: #377E3F;
+    background-color: var(--food-dark);
     border-radius: 15px;
+    padding: 0.25rem 1rem;
+}
+
+.category-household {
+    background-color: var(--household-light);
+    border-radius: 15px;
+}
+
+.category-badge-household {
+    background-color: var(--household-dark);
+    border-radius: 15px;
+    padding: 0.25rem 1rem;
+}
+
+.category-transport {
+    background-color: var(--transport-light);
+    border-radius: 15px;
+}
+
+.category-badge-transport {
+    background-color: var(--transport-dark);
+    border-radius: 15px;
+    padding: 0.25rem 1rem;
 }
 
 .appLogo {
