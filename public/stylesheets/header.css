@@ -1,4 +1,5 @@
 header {
+  height: var(--header-height);
   background-color: #FFFFFF;
   position: sticky;
   width: 100%;
@@ -6,10 +7,18 @@ header {
 }
 
 header .navbar {
+  height: var(--header-height);
   width: 90%;
   padding: 10px;
   margin: 0 auto;
   position: relative;
+}
+
+header .nav-link {
+  color: var(--text-primary) !important;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0 1rem;
 }
 
 header .nav-link.btn {
@@ -22,6 +31,7 @@ header .nav-link.btn {
 
 header .nav-item {
   margin: 5px;
+  text-align: center;
 }
 
 /* Sign up button */
@@ -58,8 +68,12 @@ header .collapse.show, .collapsing {
   margin-top: 10px;
 }
 
-/* Smaller font-sizes for mobile screen */
 @media (max-width: 1199px) {
+  header,
+  header .navbar {
+    height: auto;
+  }
+
   header .nav-link.btn {
     width: auto;
   }
@@ -69,6 +83,7 @@ header .collapse.show, .collapsing {
   header .navbar-toggler-icon {
     width: 1.5em;
     height: 1.5em;
+    border-radius: 2px;
   }
 
   header img {
