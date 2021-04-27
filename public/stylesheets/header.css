@@ -13,6 +13,7 @@ header .navbar {
 }
 
 header .nav-link.btn {
+  width: 150px;
   margin: 0 15px;
   font-weight: 400;
   font-family: 'Roboto Mono', sans-serif;
@@ -22,6 +23,7 @@ header .nav-link.btn {
 header .nav-item {
   margin: 5px;
 }
+
 /* Sign up button */
 header .nav-link.btn-primary {
   background-color: var(--button-primary);
@@ -52,39 +54,51 @@ header .navbar-toggler-icon {
   border-radius: 5px;
 }
 
+header .collapse.show, .collapsing {
+  margin-top: 10px;
+}
+
 /* Smaller font-sizes for mobile screen */
-@media (max-width: 576px) {
-  header .navbar {
-    width: 95%;
-  }
-
-  header .nav-link {
-    font-size: 1rem;
-  }
-
-  header .navbar-toggler-icon {
-    width: 2em;
-    height: 2em;
-  }
-
-  header img {
-    width: 80%;
-    height: 80%;
+@media (max-width: 1199px) {
+  header .nav-link.btn {
+    width: auto;
   }
 }
 
-@media (max-width: 400px) {
-  header {
-    height: var(--header-mini);
-  }
-
-  header .navbar {
-    height: var(--header-mini);
-  }
-
+@media (max-width: 576px) {
   header .navbar-toggler-icon {
     width: 1.5em;
     height: 1.5em;
+  }
+
+  header img {
+    width: 75%;
+    height: 75%;
+  }
+
+  header .navbar-dark .navbar-nav .nav-link {
+    font-size: 1rem;
+    padding: 0.3rem 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  header .navbar-dark .navbar-nav .nav-link {
+    font-size: 0.8rem;
+  }
+
+  header .nav-item {
+    margin: 0px 0px;
+  }
+
+  header .navbar-toggler-icon {
+    width: 1em;
+    height: 1em;
+  }
+
+  header img {
+    width: 70%;
+    height: 70%;
   }
 
   header #brand-logo{
