@@ -23,7 +23,7 @@
   <h2 class="categories-title">Or choose one of our categories:</h2>
   <div id="category-slider">
     <% categories.forEach(category => { 
-      let classes = (categorySearch === true && category.current === false) ? category.className + " inactive" : category.className; %>
+      let classes = (activeCategory && activeCategory !== category.label) ? category.className + " inactive" : category.className; %>
       <span class="badge <%= classes %>">
         <%= category.label %>
       </span>
