@@ -5,7 +5,6 @@
 #category-bg {
   position: relative;
   width: 100%;
-  height: auto;
   height: 200px;
 }
 
@@ -27,20 +26,19 @@
 }
 
 .description {
-  padding: .5rem!important; 
+  padding: .5rem 7rem !important; 
+  text-align: justify;
+
 }
 
-.btn {
+#details-btn {
   color: black;
   border-color: black;
   box-shadow: none;
+  margin-top: 100px;
 }
 
-.mr-3 {
-  margin-top: 130px;
-}
-
-.website-button .btn:hover, .btn:active {
+.website-button #details-btn:hover, #details-btn:active {
   color: white;
   background-color: black;
   border-color: black;
@@ -56,8 +54,31 @@
   color: red;
 }
 
-.back-button, a:hover, a:visited {
+.back-button {
   text-align: center;
-  color: black;
   margin-top: 30px;
+}
+
+.back-button a, .back-button a:hover, .back-button a:visited {
+  color: black !important;
+}
+
+@media (max-width: 767px) {
+  .app-logo {
+    width: 150px;
+    height: 150px;
+    bottom: -75px;
+  }
+
+  .app-title h2 {
+    font-size: 1.6rem;
+  }
+
+  .category-color {
+    height: 100px;
+  }
+
+  .description {
+    padding: .5rem !important;
+  }
 }
