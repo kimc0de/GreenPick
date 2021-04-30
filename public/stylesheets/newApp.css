@@ -1,0 +1,44 @@
+#new-app section {
+  margin: 3% 5%;
+}
+
+#new-app .question-field {
+  padding: 5px 0px;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+#new-app .answer-field {
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 1.3%;
+}
+
+#new-app input, textarea {
+  border-radius: 5px;
+}
+
+#app-image{
+  background-color:  var(--input-primary);
+  border-radius: 15px;
+}
+
+#app-image h5 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+#drop-image {
+  text-align: center;
+  padding: 20px;
+}
+
+#complete-submit {
+  text-align: center;
+}
+
+#complete-button {
+  width: 65%;
+  background-color: var(--button-primary);
+  border-radius: 20px;
+}
