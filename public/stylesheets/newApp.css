@@ -42,3 +42,23 @@
   background-color: var(--button-primary);
   border-radius: 20px;
 }
+
+@media (max-width: 576px) {
+
+  #new-app .question-field {
+    padding: 5px 0px;
+    margin-bottom: 10px;
+    font-size: inherit;
+  }
+
+  #new-app .answer-field {
+    width: 100%;
+    font-size: inherit;
+    padding: 10px;
+  }
+
+  #app-image h5 {
+    font-size: inherit;
+  }
+
+}
