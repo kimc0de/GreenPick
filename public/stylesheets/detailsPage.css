@@ -1,0 +1,63 @@
+.category-color {
+  background: #F5DECD;
+}
+
+#category-bg {
+  position: relative;
+  width: 100%;
+  height: auto;
+  height: 200px;
+}
+
+.app-logo {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  border-radius: 8px;
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.app-title {
+  margin-top: 140px;
+  text-align: center;
+}
+
+.description {
+  padding: .5rem!important; 
+}
+
+.btn {
+  color: black;
+  border-color: black;
+  box-shadow: none;
+}
+
+.mr-3 {
+  margin-top: 130px;
+}
+
+.website-button .btn:hover, .btn:active {
+  color: white;
+  background-color: black;
+  border-color: black;
+}
+
+.heart .btn:hover {
+  color: black;
+  background-color: white;
+  border-color: black;
+}
+
+.heart svg {
+  color: red;
+}
+
+.back-button, a:hover, a:visited {
+  text-align: center;
+  color: black;
+  margin-top: 30px;
+}

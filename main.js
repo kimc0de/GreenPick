@@ -25,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //all the routers:
 app.use(require('./routers/homeRouter'));
+app.use(require('./routers/detailsRouter'));
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${app.get("port")}`);
