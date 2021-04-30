@@ -79,6 +79,17 @@
   padding: 0.25rem 1rem;
 }
 
+.category-finance {
+  background-color: var(--finance-light);
+  border-radius: 15px;
+}
+
+.category-badge-finance {
+  background-color: var(--finance-dark);
+  border-radius: 15px;
+  padding: 0.25rem 1rem;
+}
+
 .appLogo {
   flex: none;
   background-size: cover;
