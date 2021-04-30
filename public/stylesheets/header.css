@@ -68,14 +68,38 @@ header .collapse.show, .collapsing {
   margin-top: 10px;
 }
 
+header .nav-line {
+  border-right: 1px solid var(--line);
+}
+
+#user-icon,
+#profile-text {
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0px 5px;
+}
+
+#user-icon {
+  height: 24px; /* span doesnt have same size as svg, change height to have desired position */
+}
+
 @media (max-width: 1199px) {
   header,
   header .navbar {
     height: auto;
   }
 
+  header .nav-item {
+    width: 100%;
+  }
+
   header .nav-link.btn {
     width: auto;
+  }
+
+  header .nav-line {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
   }
 }
 
@@ -118,5 +142,14 @@ header .collapse.show, .collapsing {
 
   header #brand-logo{
     width: 70%;
+  }
+  #user-icon {
+    height: 18px;
+    margin-right: 0px;
+  }
+
+  #user-icon svg{
+    height: 15px;
+    width: 15px;
   }
 }
