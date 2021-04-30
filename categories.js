@@ -22,5 +22,9 @@ exports.categories = [
   {
     label: "Transport",
     className: "category-badge-transport"
+  },
+  {
+    label: "Finance",
+    className: "category-badge-finance"
   }
 ]

@@ -30,6 +30,8 @@
   --household-light: #DFCBD7;
   --transport-dark: #335380;
   --transport-light: #CCD3DE;
+  --finance-dark: #10B1E3;
+  --finance-light: #C3EBF8;
 }
 
 body {
