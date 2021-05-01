@@ -40,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('./routers/homeRouter'));
 app.use(require('./routers/greenpickAppRouter'));
 app.use(require('./routers/detailsRouter'));
+app.use(require('./routers/confirmationRouter'));
 app.use(require('./routers/errorRouter'));
 
 app.listen(port, () => {

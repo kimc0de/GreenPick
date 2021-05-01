@@ -31,3 +31,8 @@ exports.getDetailsPage = (req, res) => {
     appDescription: description
   });
 };
+
+exports.getConfirmation = (req, res) => {
+  let id = req.params.id;
+  res.render('./confirmation', {id:id});
+};
