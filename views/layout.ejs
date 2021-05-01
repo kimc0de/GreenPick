@@ -11,24 +11,22 @@
 
     <%# Bootstrap style sheet %>
     <link href="/stylesheets/bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- Filepond stylesheet --><!-- add to document <head> -->
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
 
     <%# Font %>
 
     <%# Icons %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <%# Icons %>
-
     <%# Custom style sheets - link here to overwrite bootstrap %>
     <link href="/stylesheets/styles.css" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/homepage.css" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/appСard.css" rel="stylesheet" type="text/css" />
-
-    <%# Custom style sheets - link here to overwrite bootstrap %>
-    <link href="/stylesheets/styles.css" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/header.css" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/homepage.css" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/detailsPage.css" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/newApp.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
@@ -41,6 +39,13 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="/javascripts/bootstrap.bundle.min.js"></script>
 
+    <!--  FilePond scripts-->
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+    <!-- FilePond initialisation logic -->
+    <script>
+      const inputElement = document.querySelector("input[type='file']");
+      const pond = FilePond.create(inputElement);
+    </script>
   </body>
 </html>
 <!--layout.ejs serves as the application's main styling and navigation foundation-->

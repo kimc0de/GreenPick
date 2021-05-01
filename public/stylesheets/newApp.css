@@ -1,0 +1,58 @@
+#new-app section {
+  margin: 3% 0%;
+}
+
+#new-app input, textarea {
+  border-radius: 5px;
+}
+
+#new-app .question-field {
+  font-size: 1.5rem;
+}
+
+#app-image{
+  background-color:  var(--input-primary);
+  border-radius: 15px;
+}
+
+#complete-submit {
+  text-align: center;
+}
+
+#complete-button {
+  width: 65%;
+  background-color: var(--button-primary);
+  border-radius: 20px;
+  border: none;
+}
+
+/**
+ * FilePond Custom Styles
+ */
+.filepond--drop-label {
+  color: var(--text-primary);
+}
+
+.filepond--label-action {
+  text-decoration-color: #babdc0;
+}
+
+.filepond--panel-root {
+  border-radius: 10px;
+  background-color: var(--input-primary);
+  height: 1em;
+}
+
+.filepond--item-panel {
+  background-color: #595e68;
+}
+
+.filepond--drip-blob {
+  background-color: #7f8a9a;
+}
+
+@media (max-width: 576px) {
+  #new-app .question-field {
+    font-size: inherit;
+  }
+}

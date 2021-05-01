@@ -1,0 +1,42 @@
+<form action="/add" method="post">
+  <div id="new-app" class="container">
+
+    <section>
+      <label class="form-group question-field"> What is the category? </label>
+      <input class="form-control" type="text" name="category" placeholder="category" autofocus>
+    </section>
+
+    <section>
+      <label class="form-group question-field"> What is the name? </label>
+      <input class="form-control" type="text" name="name" placeholder="e.g.Ecosia">
+    </section>
+
+
+    <section>
+      <label class="form-group question-field"> where can you find it? (website) </label>
+      <input class="form-control" type="text" name="website" placeholder="...type here">
+    </section>
+
+    <section id="app-slogan">
+      <label class="form-group question-field">Short description / Slogan: </label>
+      <input class="form-control" type="text" name="slogan" placeholder="...type here">
+    </section>
+
+    <section id="app-description">
+      <label class="form-group question-field">More details about the application: </label>
+      <textarea class="form-control" name="description" placeholder="...type here" rows="6"></textarea>
+    </section>
+
+    <section id="app-image">
+      <input type="file" class="filepond"
+             name="filepond"
+             data-max-file-size="3MB"
+             data-max-files="1">
+    </section>
+
+    <section id="complete-submit">
+      <button id="complete-button" class="btn btn-lg btn-primary" type="submit">Complete</button>
+    </section>
+  </div>
+</form>
+

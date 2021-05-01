@@ -1,3 +1,15 @@
+const mongoose = require("mongoose");
+mongoose.connect(
+    "mongodb://localhost:27017/green_pick",
+    {useNewUrlParser: true}
+);
+const db = mongoose.connection;
+
+db.once("open", () => {
+    console.log("Successfully connected to MongoDB using Mongoose!");
+});
+
+
 const port = 3000,
     express = require('express'),
     app = express(),
@@ -24,7 +36,9 @@ app.use(layouts);
 app.use(express.static(path.join(__dirname, 'public')));
 
 //all the routers:
+//app.use(require('./routers/userRouter'));
 app.use(require('./routers/homeRouter'));
+app.use(require('./routers/greenpickAppRouter'));
 app.use(require('./routers/detailsRouter'));
 app.use(require('./routers/errorRouter'));
 
