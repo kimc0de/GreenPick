@@ -23,24 +23,41 @@
   border-radius: 15px;
 }
 
-#app-image h5 {
-  font-size: 1.5rem;
-  color: var(--text-primary);
-}
-
-#drop-image {
-  text-align: center;
-  padding: 20px;
-}
-
 #complete-submit {
   text-align: center;
 }
 
 #complete-button {
+  margin: 10px;
   width: 65%;
   background-color: var(--button-primary);
   border-radius: 20px;
+  border: none;
+}
+
+/**
+ * FilePond Custom Styles
+ */
+.filepond--drop-label {
+  color: var(--text-primary);
+}
+
+.filepond--label-action {
+  text-decoration-color: #babdc0;
+}
+
+.filepond--panel-root {
+  border-radius: 10px;
+  background-color: var(--input-primary);
+  height: 1em;
+}
+
+.filepond--item-panel {
+  background-color: #595e68;
+}
+
+.filepond--drip-blob {
+  background-color: #7f8a9a;
 }
 
 @media (max-width: 576px) {
@@ -55,10 +72,6 @@
     width: 100%;
     font-size: inherit;
     padding: 10px;
-  }
-
-  #app-image h5 {
-    font-size: inherit;
   }
 
 }
