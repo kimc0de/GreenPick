@@ -1,3 +1,15 @@
+const mongoose = require("mongoose");
+mongoose.connect(
+    "mongodb://localhost:27017/green_pick",
+    {useNewUrlParser: true}
+);
+const db = mongoose.connection;
+
+db.once("open", () => {
+    console.log("Successfully connected to MongoDB using Mongoose!");
+});
+
+
 const port = 3000,
     express = require('express'),
     app = express(),
