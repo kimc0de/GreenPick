@@ -9,4 +9,4 @@ const mongoose = require("mongoose"),
     });
 
 
-module.exports = mongoose.model("Subscriber", greenpickAppSchema);
+module.exports = mongoose.model("greenpickApp", greenpickAppSchema);
