@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" id="detail-page">
   <div class="row">
     <div class="category-<%= app.category.toLowerCase() %>" id="category-bg">
       <div class="app-logo" style="background-image: url('<%= appImg %>')"></div>
@@ -16,7 +16,7 @@
   </div>
   <div class="btn-toolbar row justify-content-center">
     <div class="website-button">
-      <a href="https://www.example.com">
+      <a href="<%= app.website%>">
         <button class="btn btn-outline-primary mr-3" id="details-btn">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe2"
             viewBox="0 0 16 16">
@@ -28,7 +28,7 @@
       </a>
     </div>
     <div class="heart">
-      <button class="btn btn-outline-primary mr-3" id="details-btn">
+      <button class="btn btn-outline-primary mr-3" id="heart-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart"
           viewBox="0 0 16 16">
           <path

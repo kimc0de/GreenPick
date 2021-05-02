@@ -5,7 +5,7 @@
   border-radius: 0 !important;
 }
 
-.app-logo {
+#detail-page .app-logo {
   width: 200px;
   height: 200px;
   background-size: cover;
@@ -19,33 +19,30 @@
   box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
 }
 
-.app-title {
+#detail-page .app-title {
   margin-top: 140px;
   text-align: center;
 }
 
-.description {
-  padding: .5rem 7rem !important; 
+#detail-page .description {
+  padding: .5rem 7rem !important;
   text-align: justify;
-
 }
 
-#details-btn {
+#details-btn,
+#heart-btn {
   color: black;
   border-color: black;
   box-shadow: none;
   margin-top: 100px;
 }
 
-.website-button #details-btn:hover, #details-btn:active {
+#details-btn:hover,
+#details-btn:active,
+#heart-btn:hover,
+#heart-btn:active {
   color: white;
   background-color: black;
-  border-color: black;
-}
-
-.heart .btn:hover {
-  color: black;
-  background-color: white;
   border-color: black;
 }
 
@@ -54,6 +51,7 @@
 }
 
 .back-button {
+  cursor: pointer;
   text-align: center;
   margin-top: 30px;
 }

@@ -90,7 +90,7 @@
   padding: 0.25rem 1rem;
 }
 
-.appLogo {
+#app-card .app-logo {
   flex: none;
   background-size: cover;
   background-position: center center;
@@ -98,4 +98,8 @@
   height: 100px;
   margin-right: 16px;
   border-radius: 15px;
+}
+
+.app-slogan {
+  min-height: 70px;
 }
