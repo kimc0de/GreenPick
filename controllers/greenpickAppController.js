@@ -17,7 +17,7 @@ exports.saveGreenpickApp = (req, res) => {
     newApp.save()
         .then(() => {
             console.log("!!!!!Thank you, you made a new entry!!!!");
-            res.render("newApp");
+            res.render("confirmation");
         })
         .catch(error => {
             res.send(error);
