@@ -63,7 +63,8 @@ button:active {
   color: black !important;
 }
 
-#back-button svg, p {
+#back-button svg,
+#back-button p {
   display: inline;
   vertical-align: middle;
 }
