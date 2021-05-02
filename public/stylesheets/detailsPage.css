@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   height: 200px;
-  border-radius: 0 !important;
+  border-radius: 0;
 }
 
 #detail-page .app-logo {
@@ -29,35 +29,43 @@
   text-align: justify;
 }
 
-#details-btn,
-#heart-btn {
+#detail-page .bottom-part {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#website-button,
+#heart {
+  display: inline;
+}
+
+#detail-page .bottom-part button {
   color: black;
   border-color: black;
   box-shadow: none;
-  margin-top: 100px;
 }
 
-#details-btn:hover,
-#details-btn:active,
-#heart-btn:hover,
-#heart-btn:active {
+#detail-page .bottom-part button:hover,
+button:active {
   color: white;
   background-color: black;
   border-color: black;
 }
 
-.heart svg {
+#heart svg {
   color: red;
 }
 
-.back-button {
+#back-button {
   cursor: pointer;
   text-align: center;
   margin-top: 30px;
+  color: black !important;
 }
 
-.back-button a, .back-button a:hover, .back-button a:visited {
-  color: black !important;
+#back-button svg, p {
+  display: inline;
+  vertical-align: middle;
 }
 
 @media (max-width: 767px) {
