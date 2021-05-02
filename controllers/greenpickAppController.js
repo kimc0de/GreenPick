@@ -30,13 +30,11 @@ exports.saveGreenpickApp = (req, res) => {
 exports.getDetailsPage = async (req, res) => {
     let id = req.params.id;
     const app = await GreenpickApp.findById(id);
-    const title = app.name;
-    const description = app.description;
 
     res.render('./detailsPage',
         {
             id: id,
-            appTitle: title,
-            appDescription: description
+            app: app,
+            appImg: '/images/tooGoodToGoLogo.png' // will be replaced when we implement images
         });
 };
