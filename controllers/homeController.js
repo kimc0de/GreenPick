@@ -1,5 +1,5 @@
 const { categories } = require('../categories');
-const GreenpickApp = require("../models/greenpickApp");
+const GreenPickApp = require("../models/greenPickApp");
 
 /**
  * Render the index.ejs file (index page).
@@ -10,7 +10,7 @@ module.exports = {
    * TODO: limit the apps show on index page
    */
   getAllApps: (req, res, next) => {
-    GreenpickApp.find((error, apps) => {
+    GreenPickApp.find((error, apps) => {
       if(error) {
         res.render("error");
       }

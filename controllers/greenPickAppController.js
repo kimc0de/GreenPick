@@ -1,4 +1,4 @@
-const GreenpickApp = require("../models/greenpickApp");
+const GreenPickApp = require("../models/greenPickApp");
 const { respondNoResourceFound } = require("./errorController");
 
 module.exports = {
@@ -6,8 +6,8 @@ module.exports = {
     res.render("newApp");
   },
 
-  saveGreenpickApp: (req, res) => {
-    let newApp = new GreenpickApp({
+  saveGreenPickApp: (req, res) => {
+    let newApp = new GreenPickApp({
       category: req.body.category,
       name: req.body.name,
       website: req.body.website,
@@ -29,7 +29,7 @@ module.exports = {
   getDetailsPage: async (req, res) => {
     let id = req.params.id;
     try {
-      const app = await GreenpickApp.findById(id);
+      const app = await GreenPickApp.findById(id);
       res.render('./detailsPage',
         {
           id: id,
