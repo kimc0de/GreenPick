@@ -16,10 +16,27 @@ exports.saveGreenpickApp = (req, res) => {
     });
     newApp.save()
         .then(() => {
-            console.log("!!!!!Thank you, you made a new entry!!!!");
             res.render("newApp");
         })
         .catch(error => {
             res.send(error);
+        });
+};
+
+/**
+ * Green Pick app details page
+ */
+
+exports.getDetailsPage = async (req, res) => {
+    let id = req.params.id;
+    const app = await GreenpickApp.findById(id);
+    const title = app.name;
+    const description = app.description;
+
+    res.render('./detailsPage',
+        {
+            id: id,
+            appTitle: title,
+            appDescription: description
         });
 };
