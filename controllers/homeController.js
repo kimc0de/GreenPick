@@ -1,5 +1,6 @@
 const { categories } = require('../categories');
 const GreenPickApp = require("../models/greenPickApp");
+const {respondNoResourceFound} = require("./errorController");
 
 /**
  * Render the index.ejs file (index page).
@@ -11,10 +12,14 @@ module.exports = {
    */
   getAllApps: (req, res, next) => {
     GreenPickApp.find((error, apps) => {
-      if(error) {
-        res.render("error");
+      try {
+        req.data = apps;
       }
-      req.data = apps;
+      catch(error) {
+        console.log(error);
+        respondNoResourceFound(req, res);
+      }
+
       next();
     })
   },
