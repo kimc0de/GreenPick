@@ -5,11 +5,12 @@
   margin-top: 2.5rem;
 }
 
-.card-body {
+#app-card .card-body {
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 
-.card-body h2 {
+#app-card .card-body h2 {
   font-size: 1.5rem;
 }
 
@@ -90,7 +91,7 @@
   padding: 0.25rem 1rem;
 }
 
-.appLogo {
+#app-card .app-logo {
   flex: none;
   background-size: cover;
   background-position: center center;
@@ -98,4 +99,8 @@
   height: 100px;
   margin-right: 16px;
   border-radius: 15px;
+}
+
+#app-card .app-slogan {
+  min-height: 70px;
 }

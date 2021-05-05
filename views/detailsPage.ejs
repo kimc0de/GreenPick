@@ -1,26 +1,22 @@
-<div class="container-fluid">
+<div class="container-fluid" id="detail-page">
   <div class="row">
-    <div class="category-color" id="category-bg">
-      <div class="app-logo" style="background-image: url('/images/good_on_you_logo.png')"></div>
+    <div class="category-<%= app.category.toLowerCase() %>" id="category-bg">
+      <div class="app-logo" style="background-image: url('<%= appImg %>')"></div>
     </div>
   </div>
   <div class="app-title">
-    <h2>
-      <%=appTitle %>
-    </h2>
-    <p>
-      <%=id %>
-    </p>
+    <h1>
+      <%= app.name %>
+    </h1>
   </div>
   <div class="description container">
     <p>
-      <%=appDescription %>
+      <%= app.description %>
     </p>
   </div>
-  <div class="btn-toolbar row justify-content-center">
-    <div class="website-button">
-      <a href="https://www.example.com">
-        <button class="btn btn-outline-primary mr-3" id="details-btn">
+  <div class="bottom-part">
+    <div id="website-button">
+        <button class="btn btn-outline-primary mr-3" onclick="location.href='<%=app.website%>';">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe2"
             viewBox="0 0 16 16">
             <path
@@ -28,10 +24,9 @@
           </svg>
           Website
         </button>
-      </a>
     </div>
-    <div class="heart">
-      <button class="btn btn-outline-primary mr-3" id="details-btn">
+    <div id="heart">
+      <button class="btn btn-outline-primary mr-3">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart"
           viewBox="0 0 16 16">
           <path
@@ -39,15 +34,15 @@
         </svg>
       </button>
     </div>
-  </div>
-  <div class="back-button">
-    <a onclick="window.history.back();">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
-        viewBox="0 0 16 16">
-        <path fill-rule="evenodd"
-          d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
-      </svg>
-      Back to results
-    </a>
+    <div id="back-button">
+      <a onclick="window.history.back();">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left pt-1"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+        </svg>
+        <p>Back to results</p>
+      </a>
+    </div>
   </div>
 </div>

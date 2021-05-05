@@ -2,7 +2,8 @@
   margin: 3% 0%;
 }
 
-#new-app input, textarea {
+#new-app input,
+textarea {
   border-radius: 5px;
 }
 

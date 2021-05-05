@@ -1,5 +1,5 @@
 const mongoose = require("mongoose"),
-    greenpickAppSchema = mongoose.Schema({
+    greenPickAppSchema = mongoose.Schema({
         category: String,
         name: String,
         website: String,
@@ -9,4 +9,4 @@ const mongoose = require("mongoose"),
     });
 
 
-module.exports = mongoose.model("greenpickApp", greenpickAppSchema);
+module.exports = mongoose.model("greenPickApp", greenPickAppSchema);

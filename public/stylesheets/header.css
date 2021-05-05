@@ -64,7 +64,8 @@ header .navbar-toggler-icon {
   border-radius: 5px;
 }
 
-header .collapse.show, .collapsing {
+header .collapse.show,
+.collapsing {
   margin-top: 10px;
 }
 
