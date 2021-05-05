@@ -1,20 +1,20 @@
 const mongoose = require("mongoose");
 mongoose.connect(
-    "mongodb://localhost:27017/green_pick",
-    {useNewUrlParser: true}
+  "mongodb://localhost:27017/green_pick",
+  {useNewUrlParser: true}
 );
 const db = mongoose.connection;
 
 db.once("open", () => {
-    console.log("Successfully connected to MongoDB using Mongoose!");
+  console.log("Successfully connected to MongoDB using Mongoose!");
 });
 
 
 const port = 3000,
-    express = require('express'),
-    app = express(),
-    path = require("path"),
-    layouts = require('express-ejs-layouts');
+  express = require('express'),
+  app = express(),
+  path = require("path"),
+  layouts = require('express-ejs-layouts');
 
 //set the view engine as ejs
 app.set("view engine", "ejs");
@@ -24,9 +24,9 @@ app.set("port", process.env.PORT || 3000);
 
 //tell express to use body-parser for processing URL encoded and JSON as parameters
 app.use(
-    express.urlencoded({
-        extended: false
-    })
+  express.urlencoded({
+    extended: false
+  })
 );
 app.use(express.json());
 
@@ -42,6 +42,5 @@ app.use(require('./routers/greenPickAppRouter'));
 app.use(require('./routers/errorRouter'));
 
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${app.get("port")}`);
+  console.log(`Server is running on http://localhost:${app.get("port")}`);
 });
-
