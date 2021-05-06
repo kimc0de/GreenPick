@@ -17,7 +17,7 @@ module.exports = {
     });
     newApp.save()
       .then(() => {
-        res.render("newApp");
+        res.render("confirmation");
       })
       .catch(error => {
         res.send(error);
