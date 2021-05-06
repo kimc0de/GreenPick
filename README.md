@@ -4,8 +4,3 @@ Green Pick is the application we build as part of our course WTAT Summer Semeste
 
 Green Pick provides eco-friendly, sustainable alternatives to everyday products.
 
-## Package installation
-`npm install`
-
-## Running the app
-`npm start`
