@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //all the routers:
 //app.use(require('./routers/userRouter'));
 app.use(require('./routers/homeRouter'));
-app.use(require('./routers/greenPickAppRouter'));
+app.use(require('./routers/newAppRouter'));
 app.use(require('./routers/errorRouter'));
 
 app.listen(port, () => {

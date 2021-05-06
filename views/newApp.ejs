@@ -1,50 +1,73 @@
 <form action="/add" method="post">
-  <div id="new-app" class="container">
+    <div id="new-app" class="container">
 
-    <section>
-      <div class="title-div row">
-        <div class="title-logo"></div>
-        <div><h2 class="question-field">Add a new GreenPick</h2></div>
-        <div class="title-logo"></div>
-      </div>
-    </section>
+        <section>
+            <div class="row justify-content-center align-items-center">
+                <div class="title-logo"></div>
+                <div><h2 class="question-field title-div">Add a new GreenPick</h2></div>
+                <div class="title-logo"></div>
+            </div>
+        </section>
 
-    <section>
-      <label class="form-group question-field"> What is the category? </label>
-      <input class="form-control" type="text" name="category" placeholder="category" autofocus>
-    </section>
+        <section>
+            <label class="form-group question-field"> Name of the application or brand: </label>
+            <input class="form-control" type="text" name="name" placeholder="e.g.Ecosia">
+        </section>
 
-    <section>
-      <label class="form-group question-field"> What is the name? </label>
-      <input class="form-control" type="text" name="name" placeholder="e.g.Ecosia">
-    </section>
+        <section>
+            <label class="form-group question-field">Where can users find it?</label>
+            <input class="form-control" type="text" name="website" placeholder="e.g. ecosia.org">
+        </section>
+
+        <section>
+                <label class="form-group question-field">What category does your app fit in?</label>
+
+            <div class="dropdown" id="categoriesDropdown">
+                <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownCategoriesButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Choose a category
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                    <% categories.forEach(category => { %>
+                     <a class="dropdown-item" href="#" data-categoryClass="lifestyle"> <%= category.label %> </a>
+                  <% });%>
 
 
-    <section>
-      <label class="form-group question-field"> where can you find it? (website) </label>
-      <input class="form-control" type="text" name="website" placeholder="...type here">
-    </section>
 
-    <section id="app-slogan">
-      <label class="form-group question-field">Short description / Slogan: </label>
-      <input class="form-control" type="text" name="slogan" placeholder="...type here" maxlength="65">
-    </section>
+                    <a class="dropdown-item" href="#" data-categoryClass="shopping">Shopping</a>
+                    <a class="dropdown-item" href="#" data-categoryClass="social">Social</a>
+                    <a class="dropdown-item" href="#" data-categoryClass="household">Household</a>
+                    <a class="dropdown-item" href="#" data-categoryClass="transport">Transport</a>
+                    <a class="dropdown-item" href="#" data-categoryClass="finance">Finance</a>
+                </div>
+                <input type="hidden" name="category">
+            </div>
 
-    <section id="app-description">
-      <label class="form-group question-field">More details about the application: </label>
-      <textarea class="form-control" name="description" placeholder="...type here" rows="6"></textarea>
-    </section>
 
-    <section id="app-image">
-      <input type="file" class="filepond"
-             name="filepond"
-             data-max-file-size="3MB"
-             data-max-files="1">
-    </section>
+        </section>
 
-    <section id="complete-submit">
-      <button id="complete-button" class="btn btn-lg btn-primary" type="submit" >Complete</button>
-    </section>
-  </div>
+
+
+        <section id="app-slogan">
+            <label class="form-group question-field">Short description / Slogan: </label>
+            <input class="form-control" type="text" name="slogan"
+                   placeholder="for example: Search the web to plant trees..." maxlength="65">
+        </section>
+
+        <section id="app-description">
+            <label class="form-group question-field">More details about the application: </label>
+            <textarea class="form-control" name="description" placeholder="What is the main idea behind this alternative service?" rows="4"></textarea>
+        </section>
+
+        <section id="app-image">
+            <input type="file" class="filepond"
+                   name="filepond"
+                   data-max-file-size="3MB"
+                   data-max-files="1">
+        </section>
+
+        <section id="complete-submit">
+            <button id="complete-button" class="btn btn-lg btn-primary" type="submit">Complete</button>
+        </section>
+    </div>
 </form>
 

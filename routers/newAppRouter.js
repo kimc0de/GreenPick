@@ -1,4 +1,4 @@
-const greenPickAppController = require('../controllers/greenPickAppController');
+const greenPickAppController = require('../controllers/newAppController');
 const router = require('express').Router();
 
 // routes to add new app page

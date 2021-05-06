@@ -1,3 +1,27 @@
+#new-app {
+  padding-bottom: 15px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  width:63%;
+}
+
+.dropdown-item {
+  color: var( --text-primary);
+  width: 100%;
+}
+
+#dropdownCategoriesButton {
+  width: 65%;
+  background-color: var(--button-primary);
+  border-radius: 20px;
+  border: none;
+}
+
 #new-app section {
   margin: 3% 0%;
 }
@@ -5,7 +29,6 @@
 #new-app .title-div {
   font-size: 1.5rem;
   color: var(--text-primary);
-  display: flow;
 }
 
 #new-app .title-logo {
@@ -13,11 +36,13 @@
   width: 35px;
   height: 35px;
   background-image: url("../images/logo3.svg");
+  padding-left: 10px;
 }
 
 #new-app input,
 textarea {
   border-radius: 5px;
+  background: var(--input-primary);
 }
 
 #new-app .question-field {
@@ -31,6 +56,7 @@ textarea {
 
 #complete-submit {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 #complete-button {
