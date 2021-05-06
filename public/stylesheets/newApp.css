@@ -2,6 +2,19 @@
   margin: 3% 0%;
 }
 
+#new-app .title-div {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  display: flow;
+}
+
+#new-app .title-logo {
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+  background-image: url("../images/logo3.svg");
+}
+
 #new-app input,
 textarea {
   border-radius: 5px;
