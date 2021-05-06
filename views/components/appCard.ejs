@@ -2,45 +2,18 @@
     <h2 id="suggestedAppsHeader">
         Suggested Apps:
     </h2>
-
-    <div class="row ">
-        <div class="col col-lg-4 col-md-6 col-12">
-            <div class="card-body category-shopping d-flex">
-                <div class="appLogo" style="background-image: url('/images/good_on_you_logo.png')"></div>
+    <div class="row" id="app-card">
+    <% data.forEach(app => { %>
+        <div class="col col-lg-4 col-md-6 col-12" onclick="location.href='/app/<%=app._id%>';">
+            <div class="card-body category-<%=app.category.toLowerCase()%> d-flex">
+                <div class="app-logo" style="background-image: url('/images/good_on_you_logo.png')"></div>
                 <div>
-                    <h2><%= data.appNameInCard; %></h2>
-                    <p><%= data.appDescriptionInCard %></p>
-                    <span class="badge rounded-pill text-light category-badge-shopping"><%= data.appCategoryBadge1 %></span>
+                    <h2><%= app.name; %></h2>
+                    <p class="app-slogan"><%= app.slogan %></p>
+                    <div class="badge rounded-pill text-light category-badge-<%=app.category.toLowerCase()%>"><%= app.category %></div>
                 </div>
             </div>
         </div>
-
-        <div class="col col-lg-4 col-md-6 col-12">
-            <div class="card-body category-food d-flex">
-                <div class="appLogo" style="background-image: url('images/tooGoodToGoLogo.png')"></div>
-                <div>
-                    <h2><%= data.appNameInCard; %></h2>
-                    <p><%= data.appDescriptionInCard %></p>
-                    <span class="badge rounded-pill text-light category-badge-food"><%= data.appCategoryBadge2 %></span>
-                </div>
-            </div>
-        </div>
-
-            <div class="col col-lg-4 col-md-6">
-                <div class="card-body category-shopping d-flex">
-                    <div class="appLogo" style="background-image: url('images/good_on_you_logo.png')">
-                    </div>
-                    <div>
-                        <h2><%= data.appNameInCard; %></h2>
-                        <p><%= data.appDescriptionInCard %></p>
-                        <span class="badge rounded-pill text-light category-badge-shopping"><%= data.appCategoryBadge1 %></span>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
+    <% })%>
     </div>
-
 </div>

@@ -1,66 +1,72 @@
-.category-color {
-  background: #F5DECD;
-}
-
 #category-bg {
   position: relative;
   width: 100%;
   height: 200px;
+  border-radius: 0;
 }
 
-.app-logo {
+#detail-page .app-logo {
   width: 200px;
   height: 200px;
   background-size: cover;
-  border-radius: 8px;
+  background-position: center;
+  border-radius: 10px;
   position: absolute;
   bottom: -100px;
   left: 0;
   right: 0;
   margin: auto;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
 }
 
-.app-title {
+#detail-page .app-title {
   margin-top: 140px;
   text-align: center;
 }
 
-.description {
-  padding: .5rem 7rem !important; 
+#detail-page .description {
+  padding: .5rem 10rem !important;
   text-align: justify;
-
 }
 
-#details-btn {
+#detail-page .bottom-part {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#website-button,
+#heart {
+  display: inline;
+}
+
+#detail-page .bottom-part button {
   color: black;
   border-color: black;
   box-shadow: none;
-  margin-top: 100px;
 }
 
-.website-button #details-btn:hover, #details-btn:active {
+#detail-page .bottom-part button:hover,
+button:active {
   color: white;
   background-color: black;
   border-color: black;
 }
 
-.heart .btn:hover {
-  color: black;
-  background-color: white;
-  border-color: black;
-}
-
-.heart svg {
+#heart svg {
   color: red;
 }
 
-.back-button {
+#back-button {
+  cursor: pointer;
   text-align: center;
   margin-top: 30px;
+  color: black !important;
 }
 
-.back-button a, .back-button a:hover, .back-button a:visited {
-  color: black !important;
+#back-button svg,
+#back-button p {
+  display: inline;
+  vertical-align: middle;
 }
 
 @media (max-width: 767px) {
