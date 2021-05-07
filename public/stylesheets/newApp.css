@@ -7,11 +7,11 @@
 }
 
 .dropdown-menu {
-  width:63%;
+  width: 63%;
 }
 
 .dropdown-item {
-  color: var( --text-primary);
+  color: var(--text-primary);
   width: 100%;
 }
 
@@ -49,8 +49,8 @@ textarea {
   font-size: 1.5rem;
 }
 
-#app-image{
-  background-color:  var(--input-primary);
+#app-image {
+  background-color: var(--input-primary);
   border-radius: 15px;
 }
 
@@ -93,6 +93,10 @@ textarea {
 
 @media (max-width: 576px) {
   #new-app .question-field {
+    font-size: inherit;
+  }
+
+  #new-app .btn {
     font-size: inherit;
   }
 }
