@@ -1,9 +1,12 @@
 const GreenPickApp = require("../models/greenPickApp");
 const { respondNoResourceFound } = require("./errorController");
+const { categories } = require('../categories');
 
 module.exports = {
   renderNewApp: (req, res) => {
-    res.render("newApp");
+    res.render("newApp", {
+      categories: categories
+    });
   },
 
   saveGreenPickApp: (req, res) => {
@@ -23,6 +26,8 @@ module.exports = {
         res.send(error);
       });
   },
+
+
   /**
    * Green Pick app details page
    */
