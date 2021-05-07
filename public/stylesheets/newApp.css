@@ -7,10 +7,7 @@
 }
 
 #new-app .dropdown-menu {
-    width: 63%;
-}
-
-#new-app .dropdown-menu.show {
+  width: 70%;
   will-change: transform;
   top: auto !important;
   left: 50% !important;
@@ -25,11 +22,11 @@
 }
 
 #dropdownCategoriesButton {
-    width: 100%;
-    background-color: var(--input-primary);
-    border-radius: 10px;
-    border: none;
-    color: var(--text-primary);
+  width: 100%;
+  background-color: var(--input-primary);
+  border-radius: 10px;
+  border: none;
+  color: var(--text-primary);
 }
 
 #new-app section {

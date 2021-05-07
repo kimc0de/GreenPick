@@ -84,7 +84,7 @@ button:active {
     height: 100px;
   }
 
-  .description {
+  #detail-page .description {
     padding: .5rem !important;
   }
 }
