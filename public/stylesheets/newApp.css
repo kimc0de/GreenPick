@@ -10,7 +10,7 @@
   width: 63%;
 }
 
-.dropdown-item {
+#new-app .dropdown-item {
   color: var(--text-primary);
   width: 100%;
 }
