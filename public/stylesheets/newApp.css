@@ -21,10 +21,11 @@
 }
 
 #dropdownCategoriesButton {
-  width: 65%;
-  background-color: var(--button-primary);
-  border-radius: 20px;
-  border: none;
+    width: 100%;
+    background-color: var(--input-primary);
+    border-radius: 10px;
+    border: none;
+    color: var(--text-primary);
 }
 
 #new-app section {
