@@ -70,4 +70,12 @@
     height: 200px;
     width: 200px;
   }
+
+  #confirmation-bottom h1 {
+    font-size: 2.5rem;
+  }
+
+  #confirmation-bottom .back-to-profile {
+    margin-top: 3rem;
+  }
 }
