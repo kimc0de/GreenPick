@@ -1,10 +1,17 @@
-<%- include('./components/searchBar') %>
+<div id="homepage">
+  <%- include('./components/searchBar') %>
 
-<div class="container mt-3">
-  <h2 class="categories-title">Or choose one of our categories:</h2>
-  <%- include('./components/categorieSlider') %>
-</div>
+  <div class="container mt-3">
+    <h2 id="categories-title">
+      Or choose one of our categories:
+    </h2>
+    <%- include('./components/categorySlider') %>
+  </div>
 
-<div class="container">
-  <%- include ('./components/appCard') %>
+  <div class="container">
+    <h2 id="suggestedAppsHeader">
+      Suggested Apps:
+    </h2>
+    <%- include ('./components/appCard') %>
+  </div>
 </div>

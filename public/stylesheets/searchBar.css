@@ -1,0 +1,56 @@
+/* SEARCH BAR */
+
+#homepage-search{
+  background-image: url('../images/greenpick/searchBackground.jpg');
+  background-size: cover;
+}
+
+#homepage-search h1 {
+  color: #fff;
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-shadow: 3px 2px 4px rgba(50, 50, 50, 0.7);
+}
+
+#homepage-search .search-container {
+  background: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 15px;
+}
+
+#homepage-search .search-field {
+  border: none;
+  margin: 5px;
+}
+
+#homepage-search .search-field::placeholder {
+  text-align: center;
+  color: var(--text-placeholder);
+}
+
+#homepage-search .search-button {
+  width: 100%;
+  border-radius: 15px;
+  text-transform: uppercase;
+  background-color: var(--button-primary);
+  border: none;
+  letter-spacing: 2px;
+  padding: 0.2rem;
+}
+
+/* desktop css */
+@media (min-width: 768px) {
+  #homepage-search h1 {
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  #homepage-search .search-field::placeholder {
+    text-align: left;
+  }
+  #homepage-search .search-field {
+    margin: 0;
+  }
+}

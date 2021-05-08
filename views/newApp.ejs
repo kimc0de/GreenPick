@@ -1,57 +1,56 @@
 <form action="/add" method="post">
-    <div id="new-app" class="container">
+  <div id="new-app" class="container">
 
-        <section>
-            <div class="row justify-content-center align-items-center">
-                <img src="/images/greenpick/logo3.svg">
-                <h2 class="question-field title-div">Add a new GreenPick</h2>
-                <img src="/images/greenpick/logo3.svg">
-            </div>
-        </section>
+    <section>
+      <div class="row justify-content-center align-items-center">
+          <img src="/images/greenpick/logo3.svg">
+          <h2 class="question-field title-div">Add a new GreenPick</h2>
+          <img src="/images/greenpick/logo3.svg">
+      </div>
+    </section>
 
-        <section>
-            <label class="form-group question-field"> Name of the application or brand: </label>
-            <input class="form-control" type="text" name="name" placeholder="...type here" required="">
-        </section>
+    <section>
+      <label class="form-group question-field"> Name of the application or brand: </label>
+      <input class="form-control" type="text" name="name" placeholder="...type here" required="">
+    </section>
 
-        <section>
-            <label class="form-group question-field">Where can users find it?</label>
-            <input class="form-control" type="text" name="website" placeholder="...type here" required="">
-        </section>
+    <section>
+      <label class="form-group question-field">Where can users find it?</label>
+      <input class="form-control" type="text" name="website" placeholder="...type here" required="">
+    </section>
 
-        <section>
-            <label class="form-group question-field">What category does your app fit in?</label>
-            <select class="form-select category-dropdown" name="category">
-                <div id="category-options">
-                <% categories.forEach(category => { %>
-                <option value="<%= (category.label).toLowerCase() %>"><%= category.label %> </option>
-                <% }); %>
-                </div>
-            </select>
-        </section>
+    <section>
+      <label class="form-group question-field">What category does your app fit in?</label>
+      <select class="form-select category-dropdown" name="category">
+        <div id="category-options">
+        <% categories.forEach(category => { %>
+        <option value="<%= (category.label).toLowerCase() %>"><%= category.label %> </option>
+        <% }); %>
+        </div>
+      </select>
+    </section>
 
-        <section id="app-slogan">
-            <label class="form-group question-field">Short description / Slogan: </label>
-            <input class="form-control" type="text" name="slogan"
-                   placeholder="...type here" maxlength="65" rows="2" required="">
-        </section>
+    <section id="app-slogan">
+      <label class="form-group question-field">Short description / Slogan: </label>
+      <input class="form-control" type="text" name="slogan"
+             placeholder="...type here" maxlength="50" rows="2" required="">
+    </section>
 
-        <section id="app-description">
-            <label class="form-group question-field">More details about the application: </label>
-            <textarea class="form-control" name="description"
-                      placeholder="...type here" rows="4" required=""></textarea>
-        </section>
+    <section id="app-description">
+      <label class="form-group question-field">More details about the application: </label>
+      <textarea class="form-control" name="description"
+                placeholder="...type here" rows="4" required=""></textarea>
+    </section>
 
-        <section id="app-image">
-            <input type="file" class="filepond"
-                   name="filepond"
-                   data-max-file-size="3MB"
-                   data-max-files="1">
-        </section>
+    <section id="app-image">
+      <input type="file" class="filepond"
+             name="filepond"
+             data-max-file-size="3MB"
+             data-max-files="1">
+    </section>
 
-        <section id="complete-submit">
-            <button id="complete-button" class="btn btn-lg btn-primary" type="submit">Complete</button>
-        </section>
-    </div>
+    <section id="complete-submit">
+      <button id="complete-button" class="btn btn-lg btn-primary" type="submit">Complete</button>
+    </section>
+  </div>
 </form>
-

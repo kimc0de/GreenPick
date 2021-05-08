@@ -1,0 +1,73 @@
+#confirmation-page {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 0 3rem;
+}
+
+#confirmation-body {
+  background-color: var(--background-message);
+  border-radius: 15px;
+}
+
+#confirmation-top {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+#confirmation-top a{
+  color: var(--button-primary);
+}
+
+#confirmation-bottom {
+  padding: 3rem 1rem;
+}
+
+#confirmation-bottom h1 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+#confirmation-bottom .add-another-button {
+  margin-top: 30px;
+}
+
+#confirmation-bottom .add-another-button button {
+  background-color: var(--button-primary);
+  border-color: transparent;
+  color: white
+}
+
+#confirmation-bottom .back-to-profile {
+  margin-top: 5rem;
+}
+
+@media (min-height: 700px) {
+  #confirmation-top {
+    padding-top: 7rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* tablet size */
+@media (min-width: 768px) and (min-height: 1024px) {
+  #confirmation-top svg {
+    height: 160px;
+    width: 160px;
+  }
+
+  #confirmation-bottom h1 {
+    font-size: 2rem;
+  }
+
+  #confirmation-bottom p {
+    font-size: 1.5rem;
+  }
+}
+
+/* desktop size */
+@media (min-width: 1200px) {
+  #confirmation-top svg {
+    height: 200px;
+    width: 200px;
+  }
+}
