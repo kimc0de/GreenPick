@@ -28,7 +28,7 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <% categories.forEach(category => { %>
-            <a class="dropdown-item" href="#" data-categoryClass=<%= category.label%>> <%= category.label %> </a>
+            <a class="dropdown-item" href="#" data-categoryClass=<%= (category.label).toLowerCase()%>> <%= category.label %> </a>
           <% }); %>
         </div>
         <input type="hidden" name="category">
