@@ -1,0 +1,23 @@
+[
+  {
+    "category": "Social",
+    "name": "Ecosia",
+    "website": "https://www.ecosia.org/",
+    "slogan": "The search engine that plants trees",
+    "description": "Ecosia is a social business founded in 2009 after a trip around the world. Christian founded Ecosia.org after a trip around the world helped him understand the problems of deforestation.Ecosia won several awards for its clever concept and speedy growth in Europe and beyond.Ecosia was the first German company to become a B Corporation thanks to its social business model. JUNE 2019\n60 million trees. A planting milestone! That same year, Ecosia also builds its own solar energy plant to power every search."
+  },
+  {
+    "category": "Finance",
+    "name": "Tomorrow",
+    "website": "https://www.tomorrow.one/",
+    "slogan": "Mobile banking for a better future",
+    "description": "Conventional banks use your money to invest massively in coal power, weapons and other damaging industries – without ever asking your permission. We use your money exclusively to invest in sustainable projects\nTomorrow offers the comfort of digital banking – without compromising your values. We use smart technologies that make your daily life easier while contributing to a better future\nOpen your Tomorrow account! Free or CO₂ offset included – we’ve got the right plan for you.\nWood is the new good. Our wooden card stands for a new way of looking at money and consumption. Exclusively included in Tomorrow Zero.\nLet’s make our money part of the solution. Together with you we create the future of banking – technically, ethically and practically."
+  },
+  {
+    "category": "Food",
+    "name": "Kuri",
+    "website": "https://kuri.co/",
+    "slogan": "Eat better and reduce your carbon footprint.",
+    "description": "Personalized nutrition meets sustainability. We made sustainable eating incredibly easy,\nthrough personalized nutrition. Kuri curates recipes based on your region, dietary preferences, lifestyle choices and values. No more digging through gazillions of irrelevant recipes. Reduce your footprint, effortlessly. 27% of greenhouse gas emissions can be attributed to what we eat. That's much more than transportation.Kuri uses carbon emissions data & dynamic seasonality to suggest the most sustainable options. Cook a recipe,we plant a tree. We’ve partnered up with Wells for Zoë so that every time you cook with the app, we will plant a tree on your behalf.Post your meal on social, and we’ll make it 2. All the deets can be found in the app when we launch."
+  }
+]
