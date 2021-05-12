@@ -1,17 +1,31 @@
-#suggestedAppsHeader {
-  letter-spacing: 0.1rem;
-  font-size: 1.8rem;
-  margin-bottom: 2.5rem;
-  margin-top: 2.5rem;
-}
+/* APP CARD */
 
 #app-card .card-body {
   margin-bottom: 1rem;
   cursor: pointer;
 }
 
-#app-card .card-body h2 {
+#app-card h2 {
   font-size: 1.5rem;
+}
+
+#app-card .app-logo {
+  flex: none;
+  background-size: cover;
+  background-position: center center;
+  width: 100px;
+  height: 100px;
+  margin-right: 16px;
+  border-radius: 15px;
+}
+
+#app-card .app-slogan {
+  height: 65px;
+  max-height: 70px !important;
+}
+
+@media (max-width: 1200px){
+
 }
 
 .category-social {
@@ -91,16 +105,3 @@
   padding: 0.25rem 1rem;
 }
 
-#app-card .app-logo {
-  flex: none;
-  background-size: cover;
-  background-position: center center;
-  width: 100px;
-  height: 100px;
-  margin-right: 16px;
-  border-radius: 15px;
-}
-
-#app-card .app-slogan {
-  min-height: 70px;
-}

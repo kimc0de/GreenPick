@@ -39,7 +39,7 @@ module.exports = {
         {
           id: id,
           app: app,
-          appImg: '/images/tooGoodToGoLogo.png' // will be replaced when we implement images
+          appImg: '/images/brandlogos/tooGoodToGo.png' // will be replaced when we implement images
         });
     } catch (error) {
       console.error(error);

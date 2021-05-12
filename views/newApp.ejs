@@ -1,62 +1,62 @@
 <form action="/add" method="post">
-    <div id="new-app" class="container">
+  <div id="new-app" class="container">
 
-        <section>
-            <div class="row justify-content-center align-items-center">
-                <div class="title-logo"></div>
-                <div><h2 class="question-field title-div">Add a new GreenPick</h2></div>
-                <div class="title-logo"></div>
-            </div>
-        </section>
+    <section>
+      <div class="row justify-content-center align-items-center">
+          <img src="/images/greenpick/logo3.svg">
+          <h2 class="question-field title-div">Add a new GreenPick</h2>
+          <img src="/images/greenpick/logo3.svg">
+      </div>
+    </section>
 
-        <section>
-            <label class="form-group question-field"> Name of the application or brand: </label>
-            <input class="form-control" type="text" name="name" placeholder="e.g.Ecosia" required="">
-        </section>
+    <section>
+      <label class="form-group question-field"> Name of the application or brand: </label>
+      <input class="form-control" type="text" name="name" placeholder="...type here" required="">
+    </section>
 
-        <section>
-            <label class="form-group question-field">Where can users find it?</label>
-            <input class="form-control" type="text" name="website" placeholder="e.g. ecosia.org" required="">
-        </section>
+    <section>
+      <label class="form-group question-field">Where can users find it?</label>
+      <input class="form-control" type="text" name="website" placeholder="...type here" required="">
+    </section>
 
-        <section>
-            <label class="form-group question-field">What category does your app fit in?</label>
-            <div class="dropdown" id="categoriesDropdown">
-                <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownCategoriesButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Choose a category
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <% categories.forEach(category => { %>
-                        <a class="dropdown-item" href="#" data-categoryClass=<%= category.label%>> <%= category.label %> </a>
-                    <% }); %>
-                </div>
-                <input type="hidden" name="category">
-            </div>
-        </section>
+    <section>
+      <label class="form-group question-field">What category does your app fit in?</label>
+      <div class="dropdown" id="categoriesDropdown">
+        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownCategoriesButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Choose a category
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% categories.forEach(category => { %>
+            <a class="dropdown-item" href="#" data-categoryClass=<%= (category.label).toLowerCase()%>> <%= category.label %> </a>
+          <% }); %>
+        </div>
+        <input type="hidden" name="category">
+      </div>
+    </section>
 
-        <section id="app-slogan">
-            <label class="form-group question-field">Short description / Slogan: </label>
-            <input class="form-control" type="text" name="slogan"
-                   placeholder="e.g.: Search the web to plant trees..." maxlength="65" rows="2" required="">
-        </section>
+    <section id="app-slogan">
+      <label class="form-group question-field">Short description / Slogan: </label>
+      <input class="form-control" type="text" name="slogan"
+             placeholder="...type here" maxlength="50" rows="2" required="">
+    </section>
 
-        <section id="app-description">
-            <label class="form-group question-field">More details about the application: </label>
-            <textarea class="form-control" name="description"
-                      placeholder="What is the main idea behind this alternative service?" rows="4" required=""></textarea>
-        </section>
+    <section id="app-description">
+      <label class="form-group question-field">More details about the application: </label>
+      <textarea class="form-control" name="description"
+                placeholder="...type here" rows="4" required=""></textarea>
+    </section>
 
-        <section id="app-image">
-            <input type="file" class="filepond"
-                   name="filepond"
-                   data-max-file-size="3MB"
-                   data-max-files="1">
-        </section>
+    <section id="app-image">
+      <input type="file" class="filepond"
+             name="filepond"
+             data-max-file-size="3MB"
+             data-max-files="1">
+    </section>
 
-        <section id="complete-submit">
-            <button id="complete-button" class="btn btn-lg btn-primary" type="submit">Complete</button>
-        </section>
-    </div>
+    <section id="complete-submit">
+      <button id="complete-button" class="btn btn-lg btn-primary" type="submit">Complete</button>
+    </section>
+  </div>
 </form>
 

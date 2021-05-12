@@ -36,14 +36,14 @@
 #new-app .title-div {
   font-size: 1.5rem;
   color: var(--text-primary);
+  margin: 0;
 }
 
-#new-app .title-logo {
-  background-size: cover;
+#new-app img {
   width: 35px;
   height: 35px;
-  background-image: url("../images/logo3.svg");
-  padding-left: 10px;
+  margin: 0px 7px;
+  vertical-align: center;
 }
 
 #new-app input,
