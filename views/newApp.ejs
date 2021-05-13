@@ -21,18 +21,11 @@
 
     <section>
       <label class="form-group question-field">What category does your app fit in?</label>
-      <div class="dropdown" id="categoriesDropdown">
-        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownCategoriesButton"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Choose a category
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <select class="form-select category-dropdown" name="category">
           <% categories.forEach(category => { %>
-            <a class="dropdown-item" href="#" data-categoryClass=<%= (category.label).toLowerCase()%>> <%= category.label %> </a>
+            <option value="<%= (category.label).toLowerCase() %>"><%= category.label %> </option>
           <% }); %>
-        </div>
-        <input type="hidden" name="category">
-      </div>
+      </select>
     </section>
 
     <section id="app-slogan">
