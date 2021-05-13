@@ -4,7 +4,7 @@
   "description": "Web application for sustainable alternatives",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cypress open",
     "start": "nodemon main.js"
   },
   "repository": {
@@ -28,6 +28,7 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
+    "cypress": "^7.3.0",
     "nodemon": "^2.0.7"
   }
 }
