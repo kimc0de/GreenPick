@@ -29,10 +29,6 @@
   vertical-align: center;
 }
 
-#new-app h2 {
-  margin: 0px;
-}
-
 #new-app input,
 #new-app textarea {
   border-radius: 5px;
