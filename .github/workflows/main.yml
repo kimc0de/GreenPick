@@ -33,4 +33,7 @@ jobs:
     steps:
       - name: Jest unit testing
         uses: actions/checkout@v2
+      - name: Install modules
+        run: npm install
+      - name: Run Jest
       - run: npm run jest
