@@ -1,4 +1,4 @@
-const app = require("main");
+const app = require("./main");
 
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGODB_URI ||
