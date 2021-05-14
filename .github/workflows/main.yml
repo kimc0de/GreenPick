@@ -1,9 +1,9 @@
 name: Deploy
 
-on: [push] #just for testing
-  #push:
-    #branches:
-      #- main
+on: 
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -39,3 +39,4 @@ jobs:
         run: npm install
       - name: Run Jest
         run: npm run jest
+        
