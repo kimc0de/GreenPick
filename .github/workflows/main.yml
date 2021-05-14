@@ -36,4 +36,4 @@ jobs:
       - name: Install modules
         run: npm install
       - name: Run Jest
-      - run: npm run jest
+        run: npm run jest
