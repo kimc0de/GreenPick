@@ -22,8 +22,7 @@ app.set("view engine", "ejs");
 //set port to the environment variable PORT value or 3000 if the former value is undefined
 app.set("port", process.env.PORT || 3000);
 const server = app.listen(app.get("port"), () => {
-    console.log(`Server running at http://localhost:
-    ${app.get("port")}`);
+    console.log(`Server running at http://localhost:${app.get("port")}`);
 });
 
 //tell express to use body-parser for processing URL encoded and JSON as parameters
