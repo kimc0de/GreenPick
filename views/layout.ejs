@@ -49,17 +49,6 @@
     <script>
       const inputElement = document.querySelector("input[type='file']");
       const pond = FilePond.create(inputElement);
-
-      // taking the value from drop-down menu in newApp page
-      $(document).ready(function() {
-        $('#categoriesDropdown a').click(function(event) {
-          var selectedCategoryName = $(this).attr('data-categoryClass')
-          var selectedCategoryLabel = $(this).html()
-          $("#categoriesDropdown button").html(selectedCategoryLabel)
-          $("#categoriesDropdown input").val(selectedCategoryName)
-        });
-      });
-
     </script>
   </body>
 </html>

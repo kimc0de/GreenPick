@@ -3,9 +3,9 @@
 
     <section>
       <div class="row justify-content-center align-items-center">
-          <img src="/images/greenpick/logo3.svg">
-          <h2 class="question-field title-div">Add a new GreenPick</h2>
-          <img src="/images/greenpick/logo3.svg">
+        <img src="/images/greenpick/logo3.svg">
+        <h2 class="title-div">Add a new GreenPick</h2>
+        <img src="/images/greenpick/logo3.svg">
       </div>
     </section>
 
@@ -21,18 +21,11 @@
 
     <section>
       <label class="form-group question-field">What category does your app fit in?</label>
-      <div class="dropdown" id="categoriesDropdown">
-        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownCategoriesButton"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Choose a category
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <% categories.forEach(category => { %>
-            <a class="dropdown-item" href="#" data-categoryClass=<%= (category.label).toLowerCase()%>> <%= category.label %> </a>
-          <% }); %>
-        </div>
-        <input type="hidden" name="category">
-      </div>
+      <select class="form-select category-dropdown" name="category">
+        <% categories.forEach(category => { %>
+          <option value="<%= (category.label).toLowerCase() %>"><%= category.label %> </option>
+        <% }); %>
+      </select>
     </section>
 
     <section id="app-slogan">

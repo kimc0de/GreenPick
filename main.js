@@ -28,8 +28,4 @@ app.use(require('./routers/homeRouter'));
 app.use(require('./routers/newAppRouter'));
 app.use(require('./routers/errorRouter'));
 
-// app.listen(port, () => {
-//   console.log(`Server is running on http://localhost:${app.get("port")}`);
-// });
-
 module.exports = app;
