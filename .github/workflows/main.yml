@@ -39,4 +39,3 @@ jobs:
         run: npm install
       - name: Run Jest
         run: npm run jest
-        
