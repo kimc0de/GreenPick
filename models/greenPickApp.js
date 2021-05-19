@@ -8,5 +8,4 @@ const mongoose = require("mongoose"),
         image: {type: Buffer, required: true}
     });
 
-
 module.exports = mongoose.model("greenPickApp", greenPickAppSchema);

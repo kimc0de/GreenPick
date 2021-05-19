@@ -5,5 +5,4 @@ const mongoose = require("mongoose"),
         password: {type: String, required: true}
     });
 
-
-module.exports = mongoose.model("greenPickApp", userSchema);
+module.exports = mongoose.model("users", userSchema);
