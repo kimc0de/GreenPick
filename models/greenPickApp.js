@@ -5,7 +5,7 @@ const mongoose = require("mongoose"),
         website: {type: String, required: true},
         slogan: {type: String, required: true},
         description: {type: String, required: true},
-        image: {type: Buffer, required: true}
+        image: {type: Buffer, required: false}
     });
 
 module.exports = mongoose.model("greenPickApp", greenPickAppSchema);
