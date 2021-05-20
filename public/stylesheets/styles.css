@@ -40,3 +40,14 @@ body {
   position: absolute;
   overflow-x: hidden;
 }
+
+.btn-primary {
+  background-color: var(--button-primary);
+  border-color: var(--button-primary);
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--button-hover);
+  border-color: var(--button-hover);
+}

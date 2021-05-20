@@ -1,8 +1,25 @@
 const User = require("../models/user");
+const { respondNoResourceFound } = require("./errorController");
 
 module.exports = {
+  renderLogin: (req, res, next) => {
+    res.render("user/login");
+  },
+
   renderSignUp: (req, res) => {
     res.render("user/signup");
+  },
+
+  validateSignUp: (req, res, next) => {
+    //validate password repeat
+    let password = req.body.password;
+    let passwordRepeat = req.body.password_repeat;
+
+    if (password === passwordRepeat) {
+      next();
+    } else {
+      res.redirect("/signup");
+    }
   },
 
   createUser: (req, res, next) => {
@@ -18,7 +35,7 @@ module.exports = {
         next();
       })
       .catch(error => {
-        res.send(error);
+        respondNoResourceFound();
       });
   },
 

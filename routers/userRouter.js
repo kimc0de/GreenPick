@@ -1,8 +1,12 @@
 const userController = require('../controllers/userController');
 const router = require('express').Router();
 
-router.get("/signup", userController.renderSignUp);
-router.post("/signup", userController.createUser, userController.redirectView);
+// Signup
+router.get("/signup", userController.renderSignUp, userController.redirectView);
+router.post("/signup", userController.validateSignUp, userController.createUser, userController.redirectView);
+
+// Login
+router.get("/login", userController.renderLogin);
 
 router.get("/users", userController.getAllUsers);
 
