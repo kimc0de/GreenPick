@@ -7,5 +7,5 @@ mongoose.connect(process.env.MONGODB_URI ||
 );
 
 const server = app.listen(app.get("port"), () => {
-  console.log(`Server running at ${app.get("port")}`);
+  console.log(`Server running at port ${app.get("port")}`);
 });
