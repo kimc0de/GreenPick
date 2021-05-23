@@ -9,7 +9,7 @@
   padding-bottom: 15px;
 }
 
-#profile-page h2 {
+#profile-page #user-name {
   font-family: 'Roboto Mono', sans-serif;
   font-size: 2rem;
   margin-top: 2vh;
@@ -24,6 +24,7 @@
 }
 
 #profile-page #edit-profile {
+  font-family: 'Roboto Mono', sans-serif;
   color:var(--text-placeholder);
   font-size: 1rem;
   margin-right: 5px;
@@ -33,18 +34,39 @@
   color: var( --button-primary);
 }
 
+#profile-page .toggle-container{
+  margin-top: 20px;
+  background-color: var(--text-placeholder);
+  border-radius: 15px;
+  overflow: hidden;
+  width:80%;
+}
+
+#profile-page .toggle-button {
+  font-family: 'Roboto Mono', sans-serif;
+  border: none;
+  width: 50%;
+  height: 35px;
+  color: var( --text-secondary);
+  font-size: 1rem;
+}
+
+#profile-page .toggle-button.active{
+  background-color: var(--button-primary);
+  color:white;
+}
+
+#profile-page .app-lists .app-list {
+  display: none;
+}
+
+#profile-page .app-lists .app-list.active {
+  display: block;
+}
+
 @media (max-width: 576px) {
-  #profile-page h2 {
-    font-size: 1.2rem;
-  }
-
-  #profile-page #edit-profile {
-    font-size: 0.8rem;
-  }
-
-  #profile-page #editing-icon{
-    width: 13px;
-    height: 13px;
+  #profile-background {
+    height: 25vh;
   }
 
   #profile-page img {
@@ -53,9 +75,25 @@
     margin-top: -8vh;
   }
 
-  #profile-background {
-    height: 25vh;
+  #profile-page #user-name {
+    font-size: 1.2rem;
   }
+
+  #profile-page #edit-profile {
+    font-size: 0.8rem;
+  }
+
+  #profile-page #editing-icon{
+    width: 10px;
+    height: 10px;
+  }
+
+  #profile-page .toggle-button {
+    font-size: 0.8rem;
+  }
+
+
+
 
 
 }
