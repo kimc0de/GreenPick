@@ -1,0 +1,61 @@
+#profile-background {
+  width: 100%;
+  height: 35vh;
+  background-color: var(--background-profile);
+}
+
+
+#profile-page {
+  padding-bottom: 15px;
+}
+
+#profile-page h2 {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 2rem;
+  margin-top: 2vh;
+}
+
+#profile-page img {
+  background-size: cover;
+  border-radius: 50%;
+  width: 30vh;
+  height: 30vh;
+  margin-top:-15vh;
+}
+
+#profile-page #edit-profile {
+  color:var(--text-placeholder);
+  font-size: 1rem;
+  margin-right: 5px;
+}
+
+#profile-page #editing-icon {
+  color: var( --button-primary);
+}
+
+@media (max-width: 576px) {
+  #profile-page h2 {
+    font-size: 1.2rem;
+  }
+
+  #profile-page #edit-profile {
+    font-size: 0.8rem;
+  }
+
+  #profile-page #editing-icon{
+    width: 13px;
+    height: 13px;
+  }
+
+  #profile-page img {
+    width: 20vh;
+    height: 20vh;
+    margin-top: -8vh;
+  }
+
+  #profile-background {
+    height: 25vh;
+  }
+
+
+}
