@@ -2,7 +2,7 @@ const User = require("../models/user");
 const { respondNoResourceFound } = require("./errorController");
 
 module.exports = {
-  renderLogin: (req, res, next) => {
+  renderLogin: (req, res) => {
     res.render("user/login");
   },
 
@@ -50,6 +50,10 @@ module.exports = {
         res.send(error);
         res.redirect("/");
       });
+  },
+
+  renderEdit: (req, res) => {
+    res.render("user/edit");
   },
 
   redirectView: (req, res, next) => {
