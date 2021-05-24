@@ -64,6 +64,20 @@
   display: block;
 }
 
+#profile-page .number-of-apps {
+  color: var(--food-dark);
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 60px;
+  margin-right: 13vh;
+  margin-left: 15vh;
+}
+
+#profile-page .text-in-app-list {
+  color: #7B7B7B;
+  font-family: 'Roboto Mono', sans-serif;
+  margin-top: 3.5vh;
+}
+
 @media (max-width: 576px) {
   #profile-background {
     height: 25vh;
@@ -92,8 +106,16 @@
     font-size: 0.8rem;
   }
 
+  #profile-page .number-of-apps {
+    font-size: 35px;
+    margin-left: 8vh;
+    margin-right: 8vh;
+  }
 
-
-
+  #profile-page .text-in-app-list {
+    font-size: 0.8rem;
+    margin-top: 2vh;
+    margin-right: 3vh;
+  }
 
 }
