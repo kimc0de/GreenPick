@@ -5,6 +5,10 @@ const router = require('express').Router();
 router.get("/add", greenPickAppController.renderNewApp);
 router.post("/add", greenPickAppController.saveGreenPickApp);
 
+// routes to edit app page
+router.get("/app/:id/edit", greenPickAppController.renderNewApp);
+router.post("/app/:id/edit", greenPickAppController.editGreenPickApp);
+
 // route to details page
 router.get("/app/:id", greenPickAppController.getDetailsPage);
 

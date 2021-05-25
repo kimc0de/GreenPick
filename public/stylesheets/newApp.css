@@ -1,5 +1,5 @@
 #new-app {
-  padding-bottom: 15px;
+  padding-bottom: 5rem;
 }
 
 #new-app section {
@@ -50,10 +50,13 @@
 }
 
 #complete-button {
-  width: 65%;
   background-color: var(--button-primary);
   border-radius: 20px;
   border: none;
+}
+
+#delete-button {
+  border-radius: 20px;
 }
 
 /**

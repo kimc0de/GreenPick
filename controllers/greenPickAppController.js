@@ -3,13 +3,26 @@ const { respondNoResourceFound } = require("./errorController");
 const { categories } = require('../categories');
 
 module.exports = {
-  renderNewApp: (req, res) => {
+  renderNewApp: async (req, res) => {
+    let editAppId = req.params.id;
+    let editApp;
+
+    if (editAppId) {
+      try {
+        editApp = await GreenPickApp.findById(editAppId);
+      } catch (error) {
+        console.error(error);
+        respondNoResourceFound(req, res);
+      }
+    }
+
     res.render("newApp", {
-      categories: categories
+      categories: categories,
+      app: editApp
     });
   },
 
-  saveGreenPickApp: (req, res) => {
+  saveGreenPickApp: async (req, res) => {
     let newApp = new GreenPickApp({
       category: req.body.category,
       name: req.body.name,
@@ -18,13 +31,40 @@ module.exports = {
       description: req.body.description
       //image: Buffer
     });
-    newApp.save()
-      .then(() => {
-        res.render("confirmation");
-      })
-      .catch(error => {
-        res.send(error);
+
+    try {
+      await newApp.save();
+      res.render("confirmation");
+    } catch (error) {
+      console.error(error);
+      respondNoResourceFound(req, res);
+    }
+  },
+
+  /**
+   * Edit Green Pick app
+   */
+  editGreenPickApp: async (req, res) => {
+    let appId = req.params.id;
+
+    let appParams = {
+      category: req.body.category,
+      name: req.body.name,
+      website: req.body.website,
+      slogan: req.body.slogan,
+      description: req.body.description
+      //image: Buffer
+    };
+
+    try {
+      const app = await GreenPickApp.findByIdAndUpdate(appId, {
+        $set: appParams
       });
+      res.render("confirmation", { app: app });
+    } catch (error) {
+      console.error(error);
+      respondNoResourceFound(req, res);
+    }
   },
 
 

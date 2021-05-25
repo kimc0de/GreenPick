@@ -9,13 +9,17 @@
       </a>
     </div>
     <div id="confirmation-bottom">
-      <h1 class="font-weight-bold">Thank you!</h1>
-      <p class="mb-2 mt-2 ml-2 mr-2">Your application can now be viewed on Green Pick!</p>
+      <% let h1 = app ? "Successfully saved!" : "Thank you!";
+      let info = app ? "Your changes are now visible on Green Pick." : "Your application can now be viewed on Green Pick!"; %>
+      <h1 class="font-weight-bold"><%= h1 %></h1>
+      <p class="mb-2 mt-2 ml-2 mr-2"><%= info %></p>
       <!-- Add another GreenPick -->
       <div class="add-another-button">
-        <a href="/add">
+        <% let buttonLink = app ? `/app/${app._id}` : "/add";
+        let buttonText = app ? "View your GreenPick application" : "Add another GreenPick"; %>
+        <a href="<%= buttonLink %>">
           <button class="btn btn-outline-primary">
-            Add another GreenPick
+            <%= buttonText %>
           </button>
         </a>
       </div>
