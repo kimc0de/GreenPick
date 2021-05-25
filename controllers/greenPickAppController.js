@@ -66,6 +66,22 @@ module.exports = {
       respondNoResourceFound(req, res);
     }
   },
+  
+  /**
+   * Delete Green Pick app 
+   */
+  deleteGreenPickApp: async (req, res) => {
+    let appId = req.params.id;
+
+    try {
+      await GreenPickApp.findByIdAndRemove(appId);
+      // TO DO: change redirect to profile page + flash message for successful deletion
+      res.redirect("/");
+    } catch (error) {
+      console.error(error);
+      respondNoResourceFound(req, res);
+    }
+  },
 
 
   /**
