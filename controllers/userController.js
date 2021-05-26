@@ -67,7 +67,24 @@ module.exports = {
   },
 
   update: (req, res, next) => {
-
+    let userId = req.params.id,
+      userParams = {
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password
+      };
+    User.findByIdAndUpdate(userId, {
+      $set: userParams
+    })
+      .then(user => {
+        res.locals.redirect = `/user/${userId}`;
+        res.locals.user = user;
+        next();
+      })
+      .catch(error => {
+        console.log(`Error updating subscriber by ID:${error.message}`);
+        next(error);
+      });
   },
 
   redirectView: (req, res, next) => {
