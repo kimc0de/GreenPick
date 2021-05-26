@@ -1,4 +1,5 @@
 const GreenPickApp = require("../models/greenPickApp");
+const User = require("../models/user");
 const { respondNoResourceFound } = require("./errorController");
 const { categories } = require('../categories');
 
@@ -18,22 +19,29 @@ module.exports = {
 
     res.render("newApp", {
       categories: categories,
+      userId: req.params.userId,
       app: editApp
     });
   },
 
   saveGreenPickApp: async (req, res) => {
+    let userId = req.params.userId;
+
     let newApp = new GreenPickApp({
       category: req.body.category,
       name: req.body.name,
       website: req.body.website,
       slogan: req.body.slogan,
-      description: req.body.description
+      description: req.body.description,
       //image: Buffer
+      userId: userId
     });
 
     try {
-      await newApp.save();
+      let savedApp = await newApp.save();
+      await User.findByIdAndUpdate(userId, {
+        $addToSet: { apps: savedApp }
+      });
       res.render("confirmation");
     } catch (error) {
       console.error(error);
@@ -66,7 +74,7 @@ module.exports = {
       respondNoResourceFound(req, res);
     }
   },
-  
+
   /**
    * Delete Green Pick app 
    */
@@ -74,7 +82,10 @@ module.exports = {
     let appId = req.params.id;
 
     try {
-      await GreenPickApp.findByIdAndRemove(appId);
+      let app = await GreenPickApp.findByIdAndRemove(appId);
+      await User.findByIdAndUpdate(app.userId, {
+        $pull: { apps: app._id }
+      });
       // TO DO: change redirect to profile page + flash message for successful deletion
       res.redirect("/");
     } catch (error) {
