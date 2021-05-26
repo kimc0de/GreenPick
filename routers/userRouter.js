@@ -11,6 +11,7 @@ router.get("/login", userController.renderLogin);
 router.get("/users", userController.getAllUsers);
 
 // Edit profile
-router.get("/edit", userController.renderEdit);
+router.get("/users/:id/edit", userController.renderEdit);
+router.post("/users/:id/update", userController.update, userController.redirectView);
 
 module.exports = router;

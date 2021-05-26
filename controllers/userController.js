@@ -52,8 +52,22 @@ module.exports = {
       });
   },
 
-  renderEdit: (req, res) => {
-    res.render("user/edit");
+  renderEdit: (req, res, next) => {
+    let userId = req.params.id;
+    User.findById(userId)
+      .then(user => {
+        res.render('user/edit', {
+          user: user
+        });
+      })
+      .catch(error => {
+        console.log(`Error fetching subscriber by ID:${error.message}`);
+        next(error);
+      });
+  },
+
+  update: (req, res, next) => {
+
   },
 
   redirectView: (req, res, next) => {
