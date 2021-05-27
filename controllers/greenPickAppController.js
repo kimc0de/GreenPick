@@ -67,7 +67,7 @@ module.exports = {
     try {
       const app = await GreenPickApp.findByIdAndUpdate(appId, {
         $set: appParams
-      });
+      }, { new: true });
       res.render("confirmation", { app: app });
     } catch (error) {
       console.error(error);
