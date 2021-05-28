@@ -30,15 +30,42 @@ describe("Test the greenPickAppController", () => {
       });
   });
 
-  test("Request details page", () => {
+  test("Edit GreenPick app", (done) => {
     GreenPickApp.find({})
       .then(result => {
-        return request(app)
+        let updatedName = "Updated name";
+        GreenPickApp.findByIdAndUpdate(result[0]._id, {
+          $set: { name: updatedName }
+        }, { new: true }).then(updatedApp => {
+          expect(updatedApp.name).toBe(updatedName);
+          done();
+        });
+      })
+  });
+
+  test("Request details page", (done) => {
+    GreenPickApp.find({})
+      .then(result => {
+        request(app)
           .get(`/app/${result[0]._id}`)
           .expect(200);
-      })
-      .catch(error => {
+        done();
+      }).catch(error => {
         throw error;
+      });
+  });
+
+  test("Delete GreenPick app", (done) => {
+    GreenPickApp.find({})
+      .then(result => {
+        GreenPickApp.findByIdAndRemove(result[0]._id)
+          .then(() => {
+            GreenPickApp.find({})
+              .then(docs => {
+                expect(docs.length).toBe(0);
+                done();
+              });
+          })
       });
   });
 
