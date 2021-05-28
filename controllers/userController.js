@@ -2,6 +2,10 @@ const User = require("../models/user");
 const { respondNoResourceFound } = require("./errorController");
 
 module.exports = {
+  renderProfile: (req, res) => {
+    res.render("user/profile");
+  },
+
   renderLogin: (req, res, next) => {
     res.render("user/login");
   },

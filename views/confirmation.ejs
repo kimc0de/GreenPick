@@ -9,13 +9,17 @@
       </a>
     </div>
     <div id="confirmation-bottom">
-      <h1 class="font-weight-bold">Thank you!</h1>
-      <p class="mb-2 mt-2 ml-2 mr-2">Your application can now be viewed on Green Pick!</p>
+      <% let h1 = typeof app === 'undefined' ? "Thank you!" : "Successfully saved!";
+      let info = typeof app === 'undefined' ? "Your application can now be viewed on Green Pick!" : "Your changes are now visible on Green Pick."; %>
+      <h1 class="font-weight-bold"><%= h1 %></h1>
+      <p class="mb-2 mt-2 ml-2 mr-2"><%= info %></p>
       <!-- Add another GreenPick -->
       <div class="add-another-button">
-        <a href="/add">
+        <% let buttonLink = typeof app === 'undefined' ? "/add" : `/app/${app._id}`;
+        let buttonText = typeof app === 'undefined' ? "Add another GreenPick" : "View your GreenPick application"; %>
+        <a href="<%= buttonLink %>">
           <button class="btn btn-outline-primary">
-            Add another GreenPick
+            <%= buttonText %>
           </button>
         </a>
       </div>
