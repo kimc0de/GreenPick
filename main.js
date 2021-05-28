@@ -2,7 +2,6 @@ const express = require('express'),
   app = express(),
   path = require("path"),
   layouts = require('express-ejs-layouts'),
- methodOverride = require("method-override"),
   expressSession = require("express-session"),
   cookieParser = require("cookie-parser"),
   connectFlash = require("connect-flash");
@@ -22,10 +21,6 @@ app.use(
 app.use(express.json());
 
 app.use(layouts);
-
-app.use(methodOverride("_method", {
-  method: ["POST", "GET"]
-}));
 
 //defines the folder for static files (css f.e.)
 app.use(express.static(path.join(__dirname, 'public')));

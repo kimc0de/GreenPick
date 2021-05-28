@@ -88,8 +88,9 @@ module.exports = {
       $set: userParams
     })
       .then(user => {
-        res.locals.redirect = `/user/${userId}`;
+        res.locals.redirect = `/user/${userId}/edit`;
         res.locals.user = user;
+        req.flash("success", `Your changes have been saved!`);
         next();
       })
       .catch(error => {
