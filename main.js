@@ -2,7 +2,10 @@ const express = require('express'),
   app = express(),
   path = require("path"),
   layouts = require('express-ejs-layouts'),
- methodOverride = require("method-override");
+ methodOverride = require("method-override"),
+  expressSession = require("express-session"),
+  cookieParser = require("cookie-parser"),
+  connectFlash = require("connect-flash");
 
 //set the view engine as ejs
 app.set("view engine", "ejs");
@@ -26,6 +29,24 @@ app.use(methodOverride("_method", {
 
 //defines the folder for static files (css f.e.)
 app.use(express.static(path.join(__dirname, 'public')));
+
+//flash messaging (22.1)
+app.use(cookieParser("secret_passcode"));
+app.use(expressSession({
+  secret: "secret_passcode",
+  cookie: {
+    maxAge: 4000000
+  },
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(connectFlash());
+
+//22.2
+app.use((req, res, next) => {
+  res.locals.flashMessages = req.flash();
+  next();
+});
 
 //all the routers:
 app.use(require('./routers/userRouter'));
