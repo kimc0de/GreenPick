@@ -1,0 +1,53 @@
+#edit-title {
+  text-align: center;
+}
+
+#edit-profile h1 {
+  font-size: 2rem;
+}
+
+#edit-profile .edit-label {
+  font-size: 1.5rem;
+}
+
+#edit-profile .edit-btn {
+  width: 30%;
+  height: 40px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+#edit-profile .edit-input {
+  border-color: var(--button-primary);
+}
+
+#save-profile-btn {
+  border: none;
+  background-color: var(--button-primary);
+  color: white;
+}
+
+#back-to-profile-btn {
+  border: 1px solid var(--button-primary);
+  background-color: white;
+  color:  var(--text-primary);
+}
+
+@media (min-width: 992px) {
+  #edit-section {
+    padding: 0px 150px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #edit-section {
+    padding: 0px 200px;
+  }
+}
+
+@media (max-width: 991px) {
+  #edit-profile .edit-btn {
+    width: 40%;
+  }
+}
+

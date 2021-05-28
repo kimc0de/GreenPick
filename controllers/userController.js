@@ -67,6 +67,42 @@ module.exports = {
       });
   },
 
+  renderEdit: (req, res, next) => {
+    let userId = req.params.id;
+    User.findById(userId)
+      .then(user => {
+        res.render('user/edit', {
+          user: user
+        });
+      })
+      .catch(error => {
+        console.log(`Error fetching user by ID:${error.message}`);
+        next(error);
+      });
+  },
+
+  update: (req, res, next) => {
+    let userId = req.params.id,
+      userParams = {
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password
+      };
+    User.findByIdAndUpdate(userId, {
+      $set: userParams
+    })
+      .then(user => {
+        res.locals.redirect = `/user/${userId}/edit`;
+        res.locals.user = user;
+        req.flash("success", `Your changes have been saved!`);
+        next();
+      })
+      .catch(error => {
+        console.log(`Error updating user by ID:${error.message}`);
+        next(error);
+      });
+  },
+
   redirectView: (req, res, next) => {
     let redirectPath = res.locals.redirect;
     if (redirectPath) res.redirect(redirectPath);
