@@ -76,7 +76,7 @@ module.exports = {
         });
       })
       .catch(error => {
-        console.log(`Error fetching subscriber by ID:${error.message}`);
+        console.log(`Error fetching user by ID:${error.message}`);
         next(error);
       });
   },
@@ -98,7 +98,7 @@ module.exports = {
         next();
       })
       .catch(error => {
-        console.log(`Error updating subscriber by ID:${error.message}`);
+        console.log(`Error updating user by ID:${error.message}`);
         next(error);
       });
   },
