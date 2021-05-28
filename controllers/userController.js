@@ -18,6 +18,7 @@ module.exports = {
     if (password === passwordRepeat) {
       next();
     } else {
+      req.flash("error", `Please make sure your passwords match.`);
       res.redirect("/signup");
     }
   },
@@ -38,7 +39,13 @@ module.exports = {
       .catch(error => {
         console.log(`Error saving user: ${error.message}`);
         res.locals.redirect = "/signup";
-        req.flash("error", `Failed to create user account because: ➥${error.message}.`);
+        if (error.message.includes('email')) {
+          req.flash("error", `An account for this email already exists.`);
+        } else if (error.message.includes('username')) {
+          req.flash("error", `This username is taken.`);
+        } else {
+          req.flash("error", `Failed to create user account because: ➥${error.message}.`);
+        }
         next();
       });
   },
