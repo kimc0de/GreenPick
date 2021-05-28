@@ -83,11 +83,11 @@ module.exports = {
 
     try {
       let app = await GreenPickApp.findByIdAndRemove(appId);
-      await User.findByIdAndUpdate(app.userId, {
+      let user = await User.findByIdAndUpdate(app.userId, {
         $pull: { apps: app._id }
-      });
-      // TO DO: change redirect to profile page + flash message for successful deletion
-      res.redirect("/");
+      }, { new: true });
+      req.flash("success", `Your GreenPick "${app.name}" has been deleted.`);
+      res.redirect(`/user/${user._id}`);
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);
