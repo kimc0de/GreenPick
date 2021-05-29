@@ -10,6 +10,8 @@ router.post("/signup", userController.validateSignUp, userController.createUser,
 
 // Login
 router.get("/login", userController.renderLogin);
+router.post("/login", userController.authenticate);
+router.get("/logout", userController.logout, userController.redirectView);
 
 router.get("/users", userController.getAllUsers);
 

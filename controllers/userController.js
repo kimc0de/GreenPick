@@ -1,12 +1,13 @@
 const User = require("../models/user");
 const { respondNoResourceFound } = require("./errorController");
+const passport = require("passport");
 
 module.exports = {
   renderProfile: (req, res) => {
     res.render("user/profile");
   },
 
-  renderLogin: (req, res, next) => {
+  renderLogin: (req, res) => {
     res.render("user/login");
   },
 
@@ -14,9 +15,23 @@ module.exports = {
     res.render("user/signup");
   },
 
+  authenticate: passport.authenticate("local", {
+    failureRedirect: "/login",
+    failureFlash: "Failed to login.",
+    successRedirect: "/",
+    successFlash: "Logged in!"
+   }),
+
+  logout: (req, res, next) => {
+    req.logout();
+    req.flash("success", "You have been logged out!");
+    res.locals.redirect = "/";
+    next();
+  },
+
   validateSignUp: (req, res, next) => {
     //validate password repeat
-    let password = req.body.password;
+    /*let password = req.body.password;
     let passwordRepeat = req.body.password_repeat;
 
     if (password === passwordRepeat) {
@@ -24,7 +39,26 @@ module.exports = {
     } else {
       req.flash("error", `Please make sure your passwords match.`);
       res.redirect("/signup");
-    }
+    }*/
+
+    req.sanitizeBody("email")
+      .normalizeEmail({
+        all_lowercase: true
+      })
+      .trim();
+    req.check("email", "Email is invalid").isEmail();
+    req.check("password", "Passwords must match").equals(req.body.password_repeat);
+    req.getValidationResult().then((error) => {
+      if (!error.isEmpty()) {
+        let messages = error.array().map(e => e.msg);
+        req.skip = true;
+        req.flash("error", messages.join(" and "));
+        res.locals.redirect = '/signup';
+        next();
+      } else {
+        next();
+      }
+    });
   },
 
   createUser: (req, res, next) => {
