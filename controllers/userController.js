@@ -31,7 +31,7 @@ module.exports = {
 
   validateSignUp: (req, res, next) => {
     //validate password repeat
-    /*let password = req.body.password;
+    let password = req.body.password;
     let passwordRepeat = req.body.password_repeat;
 
     if (password === passwordRepeat) {
@@ -39,7 +39,7 @@ module.exports = {
     } else {
       req.flash("error", `Please make sure your passwords match.`);
       res.redirect("/signup");
-    }*/
+    }
 
     req.sanitizeBody("email")
       .normalizeEmail({
@@ -47,7 +47,6 @@ module.exports = {
       })
       .trim();
     req.check("email", "Email is invalid").isEmail();
-    req.check("password", "Passwords must match").equals(req.body.password_repeat);
     req.getValidationResult().then((error) => {
       if (!error.isEmpty()) {
         let messages = error.array().map(e => e.msg);
@@ -65,16 +64,17 @@ module.exports = {
     let userParams = {
       username: req.body.username,
       email: req.body.email,
-      password: req.body.password
     };
-    User.create(userParams)
-      .then(user => {
+    
+    let newUser = new User(userParams);
+
+    User.register(newUser, req.body.password, (error, user) => {
+      if(user){
         req.flash("success", `Account created successfully!`);
         res.locals.redirect = "/users";
         res.locals.user = user;
         next();
-      })
-      .catch(error => {
+      } else {
         console.log(`Error saving user: ${error.message}`);
         res.locals.redirect = "/signup";
         if (error.message.includes('email')) {
@@ -85,7 +85,8 @@ module.exports = {
           req.flash("error", `Failed to create user account because: ➥${error.message}.`);
         }
         next();
-      });
+      }
+    });
   },
 
   getAllUsers: (req, res) => {
