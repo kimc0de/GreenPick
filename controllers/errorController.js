@@ -13,6 +13,13 @@ module.exports = {
     console.log('ERROR:', error);
     res.status(errorCode);
     res.send(`${errorCode} | Sorry, our application is experiencing  a problem!`);
+  },
+
+  redirectIfUnauthorized: (req, res) => {
+    if (!req.user) {
+      req.flash("error", "Please log in to access this page.");
+      res.redirect("/login");
+    }
   }
 
 }

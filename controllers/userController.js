@@ -1,9 +1,10 @@
 const User = require("../models/user");
-const { respondNoResourceFound } = require("./errorController");
+const { respondNoResourceFound, redirectIfUnauthorized } = require("./errorController");
 const passport = require("passport");
 
 module.exports = {
   renderProfile: (req, res) => {
+    redirectIfUnauthorized(req, res);
     res.render("user/profile");
   },
 
@@ -20,7 +21,7 @@ module.exports = {
     failureFlash: "Failed to login.",
     successRedirect: "/",
     successFlash: "Logged in!"
-   }),
+  }),
 
   logout: (req, res, next) => {
     req.logout();
@@ -65,14 +66,13 @@ module.exports = {
       username: req.body.username,
       email: req.body.email,
     };
-    
+
     let newUser = new User(userParams);
 
     User.register(newUser, req.body.password, (error, user) => {
-      if(user){
+      if (user) {
         req.flash("success", `Account created successfully!`);
-        res.locals.redirect = "/users";
-        res.locals.user = user;
+        res.locals.redirect = "/user";
         next();
       } else {
         console.log(`Error saving user: ${error.message}`);
@@ -103,32 +103,23 @@ module.exports = {
   },
 
   renderEdit: (req, res, next) => {
-    let userId = req.params.id;
-    User.findById(userId)
-      .then(user => {
-        res.render('user/edit', {
-          user: user
-        });
-      })
-      .catch(error => {
-        console.log(`Error fetching user by ID:${error.message}`);
-        next(error);
-      });
+    redirectIfUnauthorized(req, res);
+    res.render('user/edit', {
+      user: req.user
+    });
   },
 
   update: (req, res, next) => {
-    let userId = req.params.id,
+    let userId = req.user._id,
       userParams = {
         username: req.body.username,
-        email: req.body.email,
-        password: req.body.password
+        email: req.body.email
       };
     User.findByIdAndUpdate(userId, {
       $set: userParams
     })
       .then(user => {
-        res.locals.redirect = `/user/${userId}/edit`;
-        res.locals.user = user;
+        res.locals.redirect = `/user/edit`;
         req.flash("success", `Your changes have been saved!`);
         next();
       })

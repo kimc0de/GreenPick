@@ -11,14 +11,14 @@
         </clipPath>
       </defs>
     </svg>
-    <h1 class="mt-3 mb-3"> Edit profile </h1>
+    <h1 class="mt-3 mb-3">Edit profile</h1>
   </div>
 
-  <form action="<%=`/user/${user._id}/update`%>" method="POST" id="edit-profile-form">
+  <form action="<%=`/user/update`%>" method="POST" id="edit-profile-form">
     <div id="edit-section" class="mt-5">
       <div class="row mb-4">
         <div class="col-sm-4 edit-label">
-          <label for="edit-username" class="edit-label"> User name </label>
+          <label for="edit-username" class="edit-label">User name</label>
         </div>
         <div class="col-sm-8">
           <input type="text" id="edit-username" name="username" class="form-control edit-input" value="<%= user.username %>">
@@ -27,7 +27,7 @@
 
       <div class="row mb-4">
         <div class="col-sm-4 edit-label">
-          <label for="edit-email" class="edit-label"> Email </label>
+          <label for="edit-email" class="edit-label">Email</label>
         </div>
         <div class="col-sm-8">
           <input type="text" id="edit-email" name="email" class="form-control edit-input" value="<%= user.email%>">
@@ -36,8 +36,8 @@
     </div>
 
     <div class="row justify-content-center mt-5 mb-5">
-      <button type="submit" class="btn edit-btn my-3 mx-2" id="save-profile-btn"> Save </button>
-      <a href="<%=`/user/${user._id}` %>" class="btn edit-btn my-3 mx-2" id="back-to-profile-btn"> Back to profile </a>
+      <button type="submit" class="btn edit-btn my-3 mx-2" id="save-profile-btn">Save</button>
+      <a href="<%=`/user` %>" class="btn edit-btn my-3 mx-2" id="back-to-profile-btn">Back to profile</a>
     </div>
 
   </form>
