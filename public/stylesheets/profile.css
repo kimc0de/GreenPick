@@ -78,12 +78,24 @@
   margin-top: 3.5vh;
 }
 
+#profile-page #app-card-button {
+  font-family: 'Roboto Mono', sans-serif;
+  /*color:var(--text-placeholder);*/
+  color: var(--food-dark);
+  font-size: 0.8rem;
+  padding-left: 15px;
+}
+
+#profile-page .app-card-buttons {
+  margin-left: 3.5vh;
+}
+
 @media (max-width: 576px) {
   #profile-background {
     height: 25vh;
   }
 
-  #profile-page img {
+  #profile-page #profile-image {
     width: 20vh;
     height: 20vh;
     margin-top: -8vh;
@@ -116,6 +128,13 @@
     font-size: 0.8rem;
     margin-top: 2vh;
     margin-right: 3vh;
+  }
+
+}
+
+@media (max-width: 768px) {
+  #profile-page .app-card-buttons {
+    margin-left: 1.8vh;
   }
 
 }

@@ -1,12 +1,11 @@
 const User = require("../models/user");
-const { categories } = require('../categories');
 const GreenPickApp = require("../models/greenPickApp");
 const { respondNoResourceFound } = require("./errorController");
 
 module.exports = {
   
   getAllApps: (req, res, next) => {
-    GreenPickApp.find((error, apps) => {
+    GreenPickApp.find({userId: req.params.id}, (error, apps) => {
       try {
         req.data = apps;
       }
@@ -16,7 +15,6 @@ module.exports = {
       }
       next();
     })
-    
   },
   
   
@@ -36,8 +34,6 @@ module.exports = {
         console.log(`Error :${error.message}`);
         next(error);
       });
-    
-    
   },
 
   renderLogin: (req, res, next) => {
