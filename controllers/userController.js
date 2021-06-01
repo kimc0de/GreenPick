@@ -41,24 +41,6 @@ module.exports = {
       req.flash("error", `Please make sure your passwords match.`);
       res.redirect("/signup");
     }
-
-    req.sanitizeBody("email")
-      .normalizeEmail({
-        all_lowercase: true
-      })
-      .trim();
-    req.check("email", "Email is invalid").isEmail();
-    req.getValidationResult().then((error) => {
-      if (!error.isEmpty()) {
-        let messages = error.array().map(e => e.msg);
-        req.skip = true;
-        req.flash("error", messages.join(" and "));
-        res.locals.redirect = '/signup';
-        next();
-      } else {
-        next();
-      }
-    });
   },
 
   createUser: (req, res, next) => {
@@ -72,18 +54,22 @@ module.exports = {
     User.register(newUser, req.body.password, (error, user) => {
       if (user) {
         req.flash("success", `Account created successfully!`);
-        res.locals.redirect = "/user";
+        res.locals.redirect = "/login";
         next();
-      } else {
-        console.log(`Error saving user: ${error.message}`);
+      } else if (error) {
+        console.error(`Error creating user: ${error.message}`);
         res.locals.redirect = "/signup";
+        let errormessage = ``;
         if (error.message.includes('email')) {
-          req.flash("error", `An account for this email already exists.`);
-        } else if (error.message.includes('username')) {
-          req.flash("error", `This username is taken.`);
-        } else {
-          req.flash("error", `Failed to create user account because: ➥${error.message}.`);
+          errormessage += `An account for this email already exists. `;
+        } 
+        if (error.message.includes('username')) {
+          errormessage += `This username is taken.`;
+        } 
+        if (errormessage.length == 0) {
+          errormessage = `Failed to create user account. ➥${error.message}.`;
         }
+        req.flash("error", errormessage);
         next();
       }
     });
