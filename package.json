@@ -7,7 +7,9 @@
     "start": "nodemon server.js",
     "cypress": "cypress open",
     "jest": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "test": "jest;cypress run",
+    "test:cypress": "cypress run"
   },
   "repository": {
     "type": "git",
