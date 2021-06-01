@@ -15,7 +15,7 @@
   margin-top: 2vh;
 }
 
-#profile-page img {
+#profile-page #profile-image {
   background-size: cover;
   border-radius: 50%;
   width: 30vh;

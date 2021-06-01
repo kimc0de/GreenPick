@@ -87,7 +87,7 @@ module.exports = {
         $pull: { apps: app._id }
       }, { new: true });
       req.flash("success", `Your GreenPick "${app.name}" has been deleted.`);
-      res.redirect(`/user/${user._id}`);
+      res.redirect(`/user/${user._id}/profile`);
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);
