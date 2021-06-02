@@ -12,7 +12,7 @@ describe("Test the greenPickAppController", () => {
     mongoDB.disconnect(done);
   });
 
-  test("Add greenPick app", (done) => {
+  test("Add greenPick app", () => {
     const newGreenPickApp = { "category": "shopping", "name": "Stefi", "website": "www.example.com", "slogan": "Short Slogan", "description": "This is a description." };
     const testApp = new GreenPickApp(newGreenPickApp);
 
@@ -22,15 +22,14 @@ describe("Test the greenPickAppController", () => {
           .then(result => {
             expect(result.length).toBe(1);
             expect(result[0]).toHaveProperty('_id');
-            done();
           });
       })
       .catch((error) => {
-        done(error.message);
+        return error.message;
       });
   });
 
-  test("Edit GreenPick app", (done) => {
+  test("Edit GreenPick app", () => {
     GreenPickApp.find({})
       .then(result => {
         let updatedName = "Updated name";
@@ -38,24 +37,22 @@ describe("Test the greenPickAppController", () => {
           $set: { name: updatedName }
         }, { new: true }).then(updatedApp => {
           expect(updatedApp.name).toBe(updatedName);
-          done();
         });
       })
   });
 
-  test("Request details page", (done) => {
+  test("Request details page", () => {
     GreenPickApp.find({})
       .then(result => {
         request(app)
           .get(`/app/${result[0]._id}`)
           .expect(200);
-        done();
       }).catch(error => {
         throw error;
       });
   });
 
-  test("Delete GreenPick app", (done) => {
+  test("Delete GreenPick app", () => {
     GreenPickApp.find({})
       .then(result => {
         GreenPickApp.findByIdAndRemove(result[0]._id)
@@ -63,7 +60,6 @@ describe("Test the greenPickAppController", () => {
             GreenPickApp.find({})
               .then(docs => {
                 expect(docs.length).toBe(0);
-                done();
               });
           })
       });

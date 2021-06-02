@@ -1,32 +1,34 @@
 const User = require("../models/user");
+const { respondNoResourceFound, redirectIfUnauthorized } = require("./errorController");
+const passport = require("passport");
 const GreenPickApp = require("../models/greenPickApp");
-const { respondNoResourceFound } = require("./errorController");
 
 module.exports = {
-  
+
   getAllApps: (req, res, next) => {
-    GreenPickApp.find({userId: req.params.id}, (error, apps) => {
+    redirectIfUnauthorized(req, res);
+
+    GreenPickApp.find({ userId: req.user._id }, (error, apps) => {
       try {
         req.data = apps;
       }
-      catch(error) {
+      catch (error) {
         console.log(error);
         respondNoResourceFound(req, res);
       }
       next();
     })
   },
-  
+
   renderProfile: (req, res, next) => {
-    let userId = req.params.id;
-    
+    let userId = req.user._id;
+
     User.findById(userId)
       .then(user => {
         res.render("user/profile", {
-          user:user,
+          user: user,
           data: req.data,
           app: req.app,
-          
         });
       })
       .catch(error => {
@@ -35,12 +37,26 @@ module.exports = {
       });
   },
 
-  renderLogin: (req, res, next) => {
+  renderLogin: (req, res) => {
     res.render("user/login");
   },
 
   renderSignUp: (req, res) => {
     res.render("user/signup");
+  },
+
+  authenticate: passport.authenticate("local", {
+    failureRedirect: "/login",
+    failureFlash: "Failed to login.",
+    successRedirect: "/",
+    successFlash: "Logged in!"
+  }),
+
+  logout: (req, res, next) => {
+    req.logout();
+    req.flash("success", "You have been logged out!");
+    res.locals.redirect = "/";
+    next();
   },
 
   validateSignUp: (req, res, next) => {
@@ -60,27 +76,32 @@ module.exports = {
     let userParams = {
       username: req.body.username,
       email: req.body.email,
-      password: req.body.password
     };
-    User.create(userParams)
-      .then(user => {
+
+    let newUser = new User(userParams);
+
+    User.register(newUser, req.body.password, (error, user) => {
+      if (user) {
         req.flash("success", `Account created successfully!`);
-        res.locals.redirect = "/users";
-        res.locals.user = user;
+        res.locals.redirect = "/login";
         next();
-      })
-      .catch(error => {
-        console.log(`Error saving user: ${error.message}`);
+      } else if (error) {
+        console.error(`Error creating user: ${error.message}`);
         res.locals.redirect = "/signup";
+        let errormessage = ``;
         if (error.message.includes('email')) {
-          req.flash("error", `An account for this email already exists.`);
-        } else if (error.message.includes('username')) {
-          req.flash("error", `This username is taken.`);
-        } else {
-          req.flash("error", `Failed to create user account because: ➥${error.message}.`);
+          errormessage += `An account for this email already exists. `;
         }
+        if (error.message.includes('username')) {
+          errormessage += `This username is taken.`;
+        }
+        if (errormessage.length == 0) {
+          errormessage = `Failed to create user account. ➥${error.message}.`;
+        }
+        req.flash("error", errormessage);
         next();
-      });
+      }
+    });
   },
 
   getAllUsers: (req, res) => {
@@ -97,32 +118,23 @@ module.exports = {
   },
 
   renderEdit: (req, res, next) => {
-    let userId = req.params.id;
-    User.findById(userId)
-      .then(user => {
-        res.render('user/edit', {
-          user: user
-        });
-      })
-      .catch(error => {
-        console.log(`Error fetching user by ID:${error.message}`);
-        next(error);
-      });
+    redirectIfUnauthorized(req, res);
+    res.render('user/edit', {
+      user: req.user
+    });
   },
 
   update: (req, res, next) => {
-    let userId = req.params.id,
+    let userId = req.user._id,
       userParams = {
         username: req.body.username,
-        email: req.body.email,
-        password: req.body.password
+        email: req.body.email
       };
     User.findByIdAndUpdate(userId, {
       $set: userParams
     })
       .then(user => {
-        res.locals.redirect = `/user/${userId}/edit`;
-        res.locals.user = user;
+        res.locals.redirect = `/user/edit`;
         req.flash("success", `Your changes have been saved!`);
         next();
       })

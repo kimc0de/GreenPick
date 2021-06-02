@@ -2,8 +2,8 @@ const greenPickAppController = require('../controllers/greenPickAppController');
 const router = require('express').Router();
 
 // routes to add new app page
-router.get("/user/:userId/add", greenPickAppController.renderNewApp);
-router.post("/user/:userId/add", greenPickAppController.saveGreenPickApp);
+router.get("/user/add", greenPickAppController.renderNewApp);
+router.post("/user/add", greenPickAppController.saveGreenPickApp);
 
 // routes to edit app page
 router.get("/app/:id/edit", greenPickAppController.renderNewApp);

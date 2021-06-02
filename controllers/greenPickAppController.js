@@ -1,10 +1,12 @@
 const GreenPickApp = require("../models/greenPickApp");
 const User = require("../models/user");
-const { respondNoResourceFound } = require("./errorController");
+const { respondNoResourceFound, redirectIfUnauthorized } = require("./errorController");
 const { categories } = require('../categories');
 
 module.exports = {
   renderNewApp: async (req, res) => {
+    redirectIfUnauthorized(req, res);
+
     let editAppId = req.params.id;
     let editApp;
 
@@ -19,13 +21,12 @@ module.exports = {
 
     res.render("newApp", {
       categories: categories,
-      userId: req.params.userId,
       app: editApp
     });
   },
 
   saveGreenPickApp: async (req, res) => {
-    let userId = req.params.userId;
+    let userId = req.user._id;
 
     let newApp = new GreenPickApp({
       category: req.body.category,
@@ -87,7 +88,7 @@ module.exports = {
         $pull: { apps: app._id }
       }, { new: true });
       req.flash("success", `Your GreenPick "${app.name}" has been deleted.`);
-      res.redirect(`/user/${user._id}/profile`);
+      res.redirect(`/user`);
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);

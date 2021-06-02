@@ -4,7 +4,10 @@ const express = require('express'),
   layouts = require('express-ejs-layouts'),
   expressSession = require("express-session"),
   cookieParser = require("cookie-parser"),
-  connectFlash = require("connect-flash");
+  connectFlash = require("connect-flash"),
+  passport = require("passport"),
+  User = require("./models/user"),
+  expressValidator = require("express-validator");
 
 //set the view engine as ejs
 app.set("view engine", "ejs");
@@ -20,12 +23,13 @@ app.use(
 );
 app.use(express.json());
 
+app.use(expressValidator());
+
 app.use(layouts);
 
 //defines the folder for static files (css f.e.)
 app.use(express.static(path.join(__dirname, 'public')));
 
-//flash messaging (22.1)
 app.use(cookieParser("secret_passcode"));
 app.use(expressSession({
   secret: "secret_passcode",
@@ -36,10 +40,16 @@ app.use(expressSession({
   saveUninitialized: false
 }));
 app.use(connectFlash());
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
-//22.2
 app.use((req, res, next) => {
   res.locals.flashMessages = req.flash();
+  res.locals.loggedIn = req.isAuthenticated();
+  res.locals.currentUser = req.user;
   next();
 });
 
