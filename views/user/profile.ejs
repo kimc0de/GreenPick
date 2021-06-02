@@ -3,12 +3,12 @@
 
 <div id="profile-page" class="container d-flex flex-column align-items-center">
   
-  <img src="/images/greenpick/profilePic1.png">
-  <h2 id="user-name">Zekiye</h2>
+  <img id="profile-image" src="/images/greenpick/profilePic1.png">
+  <h2 id="user-name"><%= user.username %></h2>
   
   <div class="d-flex flex-row">
-    <a id="edit-profile" href="/add">Edit Profile</a>
-    <a id="editing-icon" href="/add">
+    <a id="edit-profile" href="<%=`/user/${user._id}/edit`%>">Edit Profile</a>
+    <a id="editing-icon" href="<%=`/user/${user._id}/edit`%>">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
@@ -22,12 +22,35 @@
   </div>
   
   <div class="app-lists">
-    
+  
     <div id="your-apps" class="app-list active">
       <div class="d-flex flex-row">
-        <p class="number-of-apps">0 </p>
+        <p class="number-of-apps"><%= data.length %></p>
         <p class="text-in-app-list">Wonderful! Those are sustainable apps that you have added.</p>
       </div>
+    
+      <div class="row" id="app-card">
+        <% data.forEach(app => { %>
+        <div class="col col-lg-6 col-md-6 col-sm-12" onclick="location.href='/app/<%= app._id %>';">
+          <div class="card-body category-<%= app.category %> d-flex">
+            <img class="app-logo" src="/images/brandlogos/goodOnYou.png">
+            <div>
+              <h2><%= app.name; %></h2>
+              <p class="app-slogan"><%= app.slogan %></p>
+             
+              <div class="row">
+                <div class="badge rounded-pill text-light category-badge-<%= app.category %>"><%= app.category %></div>
+                <div class="d-flex flex-row app-card-buttons" >
+                <a id="app-card-button" href="<%= `/app/${app._id}/edit` %>"> Edit </a>
+                <a id="app-card-button" href="<%= `/app/${app._id}/delete` %>"> Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+      
     </div>
     
     <div id="favourite-apps" class="app-list">

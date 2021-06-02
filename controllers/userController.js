@@ -1,9 +1,38 @@
 const User = require("../models/user");
+const GreenPickApp = require("../models/greenPickApp");
 const { respondNoResourceFound } = require("./errorController");
 
 module.exports = {
-  renderProfile: (req, res) => {
-    res.render("user/profile");
+  
+  getAllApps: (req, res, next) => {
+    GreenPickApp.find({userId: req.params.id}, (error, apps) => {
+      try {
+        req.data = apps;
+      }
+      catch(error) {
+        console.log(error);
+        respondNoResourceFound(req, res);
+      }
+      next();
+    })
+  },
+  
+  renderProfile: (req, res, next) => {
+    let userId = req.params.id;
+    
+    User.findById(userId)
+      .then(user => {
+        res.render("user/profile", {
+          user:user,
+          data: req.data,
+          app: req.app,
+          
+        });
+      })
+      .catch(error => {
+        console.log(`Error :${error.message}`);
+        next(error);
+      });
   },
 
   renderLogin: (req, res, next) => {

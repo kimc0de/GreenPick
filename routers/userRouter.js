@@ -2,7 +2,7 @@ const userController = require('../controllers/userController');
 const router = require('express').Router();
 
 // Profile
-router.get("/user/:userId", userController.renderProfile);
+router.get("/user/:id/profile", userController.getAllApps, userController.renderProfile);
 
 // Signup
 router.get("/signup", userController.renderSignUp);
