@@ -1,8 +1,5 @@
-const request = require("supertest");
-const app = require("../main");
 const mongoDB = require("mongoose");
 const User = require("../models/user");
-const GreenPickApp = require("../models/greenPickApp");
 
 describe("Test the userController", () => {
   beforeAll(() => {
@@ -32,6 +29,19 @@ describe("Test the userController", () => {
       })
       .catch((error) => {
         done(error.message);
+      });
+  });
+
+  test('User edit profile', (done) => {
+    User.find({})
+      .then(result => {
+        let updatedName = "Updated name";
+        User.findByIdAndUpdate(result[0]._id, {
+          $set: { username: updatedName }
+        }, { new: true }).then(updatedUser => {
+          expect(updatedUser.username).toBe(updatedName);
+          done();
+        });
       });
   });
 

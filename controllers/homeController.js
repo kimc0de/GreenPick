@@ -30,7 +30,8 @@ module.exports = {
     res.render("index", {
       activeCategory: activeCategory,
       categories: categories,
-      data: req.data
+      data: req.data,
+      userId: req.params.userId
     });
   }
 }

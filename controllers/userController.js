@@ -1,11 +1,40 @@
 const User = require("../models/user");
 const { respondNoResourceFound, redirectIfUnauthorized } = require("./errorController");
 const passport = require("passport");
+const GreenPickApp = require("../models/greenPickApp");
 
 module.exports = {
-  renderProfile: (req, res) => {
+
+  getAllApps: (req, res, next) => {
     redirectIfUnauthorized(req, res);
-    res.render("user/profile");
+
+    GreenPickApp.find({ userId: req.user._id }, (error, apps) => {
+      try {
+        req.data = apps;
+      }
+      catch (error) {
+        console.log(error);
+        respondNoResourceFound(req, res);
+      }
+      next();
+    })
+  },
+
+  renderProfile: (req, res, next) => {
+    let userId = req.user._id;
+
+    User.findById(userId)
+      .then(user => {
+        res.render("user/profile", {
+          user: user,
+          data: req.data,
+          app: req.app,
+        });
+      })
+      .catch(error => {
+        console.log(`Error :${error.message}`);
+        next(error);
+      });
   },
 
   renderLogin: (req, res) => {
@@ -62,10 +91,10 @@ module.exports = {
         let errormessage = ``;
         if (error.message.includes('email')) {
           errormessage += `An account for this email already exists. `;
-        } 
+        }
         if (error.message.includes('username')) {
           errormessage += `This username is taken.`;
-        } 
+        }
         if (errormessage.length == 0) {
           errormessage = `Failed to create user account. ➥${error.message}.`;
         }
