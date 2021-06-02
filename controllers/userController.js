@@ -17,7 +17,6 @@ module.exports = {
     })
   },
   
-  
   renderProfile: (req, res, next) => {
     let userId = req.params.id;
     
