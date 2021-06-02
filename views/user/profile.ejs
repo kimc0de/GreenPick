@@ -31,7 +31,7 @@
     
       <div class="row" id="app-card">
         <% data.forEach(app => { %>
-        <div class="col col-lg-4 col-md-6 col-12" onclick="location.href='/app/<%= app._id %>';">
+        <div class="col col-lg-6 col-md-6 col-sm-12" onclick="location.href='/app/<%= app._id %>';">
           <div class="card-body category-<%= app.category %> d-flex">
             <img class="app-logo" src="/images/brandlogos/goodOnYou.png">
             <div>
