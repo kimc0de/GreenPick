@@ -87,7 +87,7 @@
 }
 
 #profile-page .app-card-buttons {
-  margin-left: 3.5vh;
+  margin-left: 2vh;
 }
 
 @media (max-width: 576px) {
@@ -133,7 +133,7 @@
 
 @media (max-width: 768px) {
   #profile-page .app-card-buttons {
-    margin-left: 1.8vh;
+    margin-left: 5vh;
   }
 
 }
