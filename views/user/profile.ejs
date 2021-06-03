@@ -2,10 +2,10 @@
 
 
 <div id="profile-page" class="container d-flex flex-column align-items-center">
-  
+
   <img id="profile-image" src="/images/greenpick/profilePic1.png">
   <h2 id="user-name"><%= user.username %></h2>
-  
+
   <div class="d-flex flex-row">
     <a id="edit-profile" href="/user/edit">Edit Profile</a>
     <a id="editing-icon" href="/user/edit">
@@ -15,20 +15,20 @@
       </svg>
     </a>
   </div>
-  
+
   <div class="d-flex flex-row toggle-container">
     <button class="toggle-button active" data-list-id="your-apps">Your apps</button>
     <button class="toggle-button" data-list-id="favourite-apps">Favourites</button>
   </div>
-  
+
   <div class="app-lists">
-  
+
     <div id="your-apps" class="app-list active">
       <div class="d-flex flex-row">
         <p class="number-of-apps"><%= data.length %></p>
         <p class="text-in-app-list">Wonderful! Those are sustainable apps that you have added.</p>
       </div>
-    
+
       <div class="row" id="app-card">
         <% data.forEach(app => { %>
         <div class="col col-lg-6 col-md-6 col-sm-12" onclick="location.href='/app/<%= app._id %>';">
@@ -37,12 +37,15 @@
             <div>
               <h2><%= app.name; %></h2>
               <p class="app-slogan"><%= app.slogan %></p>
-             
+
               <div class="row">
                 <div class="badge rounded-pill text-light category-badge-<%= app.category %>"><%= app.category %></div>
                 <div class="d-flex flex-row app-card-buttons" >
                 <a id="app-card-button" href="<%= `/app/${app._id}/edit` %>"> Edit </a>
-                <a id="app-card-button" href="<%= `/app/${app._id}/delete` %>"> Delete</a>
+                <a id="app-card-button" href="<%= `/app/${app._id}/delete?_method=DELETE` %>"
+                   onclick="return confirm('Are you sure you want to delete this application?')">
+                  Delete
+                </a>
                 </div>
               </div>
             </div>
@@ -50,16 +53,16 @@
         </div>
         <% }) %>
       </div>
-      
+
     </div>
-    
+
     <div id="favourite-apps" class="app-list">
       <div class="d-flex flex-row">
         <p class="number-of-apps">0 </p>
         <p class="text-in-app-list"> Fantastic! These are your favourite Green picks!</p>
       </div>
     </div>
-  
+
   </div>
 
 </div>

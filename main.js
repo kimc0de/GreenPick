@@ -7,7 +7,8 @@ const express = require('express'),
   connectFlash = require("connect-flash"),
   passport = require("passport"),
   User = require("./models/user"),
-  expressValidator = require("express-validator");
+  expressValidator = require("express-validator"),
+  methodOverride = require("method-override");
 
 //set the view engine as ejs
 app.set("view engine", "ejs");
@@ -52,6 +53,10 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
 });
+
+app.use(methodOverride("_method", {
+  methods: ["POST", "GET"]
+}));
 
 //all the routers:
 app.use(require('./routers/userRouter'));
