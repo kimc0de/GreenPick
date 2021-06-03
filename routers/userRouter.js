@@ -17,6 +17,6 @@ router.get("/users", userController.getAllUsers);
 
 // Edit profile
 router.get("/user/edit", userController.renderEdit);
-router.post("/user/update", userController.update, userController.redirectView);
+router.put("/user/update", userController.update, userController.redirectView);
 
 module.exports = router;
