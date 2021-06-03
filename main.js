@@ -1,20 +1,13 @@
-const mongoose = require("mongoose");
-mongoose.connect(
-  "mongodb://localhost:27017/green_pick",
-  {useNewUrlParser: true}
-);
-const db = mongoose.connection;
-
-db.once("open", () => {
-  console.log("Successfully connected to MongoDB using Mongoose!");
-});
-
-
-const port = 3000,
-  express = require('express'),
+const express = require('express'),
   app = express(),
   path = require("path"),
-  layouts = require('express-ejs-layouts');
+  layouts = require('express-ejs-layouts'),
+  expressSession = require("express-session"),
+  cookieParser = require("cookie-parser"),
+  connectFlash = require("connect-flash"),
+  passport = require("passport"),
+  User = require("./models/user"),
+  expressValidator = require("express-validator");
 
 //set the view engine as ejs
 app.set("view engine", "ejs");
@@ -30,17 +23,40 @@ app.use(
 );
 app.use(express.json());
 
+app.use(expressValidator());
+
 app.use(layouts);
 
 //defines the folder for static files (css f.e.)
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(cookieParser("secret_passcode"));
+app.use(expressSession({
+  secret: "secret_passcode",
+  cookie: {
+    maxAge: 4000000
+  },
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(connectFlash());
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use((req, res, next) => {
+  res.locals.flashMessages = req.flash();
+  res.locals.loggedIn = req.isAuthenticated();
+  res.locals.currentUser = req.user;
+  next();
+});
+
 //all the routers:
-//app.use(require('./routers/userRouter'));
+app.use(require('./routers/userRouter'));
 app.use(require('./routers/homeRouter'));
 app.use(require('./routers/newAppRouter'));
 app.use(require('./routers/errorRouter'));
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${app.get("port")}`);
-});
+module.exports = app;

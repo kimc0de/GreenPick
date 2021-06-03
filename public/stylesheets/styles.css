@@ -6,7 +6,7 @@
   --button-secondary: #E7E7E7;
   --button-hover: #2E7840;
 
-  --background-user: #CDDDCE;
+  --background-profile: #CDDDCE;
   --background-message: #EEF8F3;
 
   --input-primary: #E1ECE2;
@@ -39,4 +39,19 @@ body {
   width: 100%;
   position: absolute;
   overflow-x: hidden;
+}
+
+main {
+  padding-bottom: 6rem;
+}
+
+.btn-primary {
+  background-color: var(--button-primary);
+  border-color: var(--button-primary);
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--button-hover);
+  border-color: var(--button-hover);
 }

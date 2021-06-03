@@ -1,53 +1,36 @@
 #new-app {
-  padding-bottom: 15px;
-}
-
-#new-app .dropdown {
-  position: relative;
-}
-
-#new-app .dropdown-menu {
-  width: 70%;
-  will-change: transform;
-  top: auto !important;
-  left: 50% !important;
-  right: auto;
-  text-align: center;
-  transform: translate(-50%, 0) !important;
-}
-
-#new-app .dropdown-item {
-  color: var(--text-primary);
-  width: 100%;
-}
-
-#dropdownCategoriesButton {
-  width: 100%;
-  background-color: var(--input-primary);
-  border-radius: 10px;
-  border: none;
-  color: var(--text-primary);
+  padding-bottom: 5rem;
 }
 
 #new-app section {
   margin: 3% 0%;
 }
+#new-app .category-dropdown {
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+  height: 40px;
+  border-color: lightgray;
+  text-align-last: center;
+  color: var(--text-primary);
+  background-color: var(--input-primary);
+}
 
 #new-app .title-div {
   font-size: 1.5rem;
   color: var(--text-primary);
+  margin: 0;
 }
 
-#new-app .title-logo {
-  background-size: cover;
+#new-app img {
   width: 35px;
   height: 35px;
-  background-image: url("../images/logo3.svg");
-  padding-left: 10px;
+  margin: 0px 7px;
+  vertical-align: center;
 }
 
 #new-app input,
-textarea {
+#new-app textarea {
   border-radius: 5px;
   background: var(--input-primary);
 }
@@ -67,10 +50,13 @@ textarea {
 }
 
 #complete-button {
-  width: 65%;
   background-color: var(--button-primary);
   border-radius: 20px;
   border: none;
+}
+
+#delete-button {
+  border-radius: 20px;
 }
 
 /**
