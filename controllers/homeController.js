@@ -1,4 +1,4 @@
-const { categories } = require('../categories');
+const Category = require("../models/category");
 const GreenPickApp = require("../models/greenPickApp");
 const {respondNoResourceFound} = require("./errorController");
 
@@ -24,7 +24,7 @@ module.exports = {
     })
   },
 
-  renderIndex: (req, res) => {
+  renderIndex: async (req, res) => {
     if (req.query.format === "json") {
       res.json(req.data);
     } else {
@@ -32,11 +32,10 @@ module.exports = {
       let activeCategory = null;
       res.render("index", {
         activeCategory: activeCategory,
-        categories: categories,
+        categories: await Category.find({}),
         data: req.data,
         userId: req.params.userId
       });
     }
-
   }
 }

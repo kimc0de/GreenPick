@@ -1,0 +1,37 @@
+[
+  {
+    "name": "food",
+    "className": "category-food",
+    "badgeName": "category-badge-food"
+  },
+  {
+    "name": "lifestyle",
+    "className": "category-lifestyle",
+    "badgeName": "category-badge-lifestyle"
+  },
+  {
+    "name": "shopping",
+    "className": "category-shopping",
+    "badgeName": "category-badge-shopping"
+  },
+  {
+    "name": "social",
+    "className": "category-social",
+    "badgeName": "category-badge-social"
+  },
+  {
+    "name": "household",
+    "className": "category-household",
+    "badgeName": "category-badge-household"
+  },
+  {
+    "name": "transport",
+    "className": "category-transport",
+    "badgeName": "category-badge-transport"
+  },
+  {
+    "name": "finance",
+    "className": "category-finance",
+    "badgeName": "category-badge-finance"
+  }
+]
