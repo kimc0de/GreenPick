@@ -1,6 +1,6 @@
 const mongoose = require("mongoose"),
     greenPickAppSchema = mongoose.Schema({
-        category: {type: String, required: true},
+        category: {type: mongoose.Schema.Types.ObjectId, ref: "categories"},
         name: {type: String, required: true},
         website: {type: String, required: true},
         slogan: {type: String, required: true},

@@ -25,13 +25,18 @@ module.exports = {
   },
 
   renderIndex: (req, res) => {
-    // to focus on one category, set activeCategory to the active label, else set to NULL
-    let activeCategory = null;
-    res.render("index", {
-      activeCategory: activeCategory,
-      categories: categories,
-      data: req.data,
-      userId: req.params.userId
-    });
+    if (req.query.format === "json") {
+      res.json(req.data);
+    } else {
+      // to focus on one category, set activeCategory to the active label, else set to NULL
+      let activeCategory = null;
+      res.render("index", {
+        activeCategory: activeCategory,
+        categories: categories,
+        data: req.data,
+        userId: req.params.userId
+      });
+    }
+
   }
 }
