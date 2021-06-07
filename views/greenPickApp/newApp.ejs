@@ -28,8 +28,11 @@
       <label class="form-group question-field">What category does your app fit in?</label>
       <select class="form-select category-dropdown" name="category">
         <% categories.forEach(category => {
-          let selected = app && (app.category == category.label.toLowerCase()) ? 'selected="selected"' : ''; %>
-          <option value="<%= (category.label).toLowerCase() %>" <%= selected %>><%= category.label %> </option>
+          let selected = app && (app.category.equals(category._id)) ? 'selected="selected"' : ''; %>
+          <option value="<%= (category._id) %>" <%= selected %>>
+            <% let categoryName = category.name.charAt(0).toUpperCase() + category.name.slice(1); %>
+            <%= categoryName %> 
+            </option>
         <% }); %>
       </select>
     </section>
