@@ -61,7 +61,7 @@ app.use(methodOverride("_method", {
 //all the routers:
 app.use(require('./routers/userRouter'));
 app.use(require('./routers/homeRouter'));
-app.use(require('./routers/newAppRouter'));
+app.use(require('./routers/greenPickAppRouter'));
 app.use(require('./routers/apiRouter'));
 app.use(require('./routers/errorRouter'));
 
