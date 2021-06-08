@@ -2,8 +2,8 @@
 <div id="category-slider">
   <% categories.forEach(category => {
     let inactive = (activeCategory && activeCategory !== category.name) ? "inactive" : ""; %>
-    <span class="badge <%= category.badgeName %> <%= inactive%>">
+    <button name="<%= category.name%>" class="badge <%= category.badgeName %> <%= inactive%>">
       <%= category.name %>
-    </span>
+    </button>
   <% }); %>
 </div>
