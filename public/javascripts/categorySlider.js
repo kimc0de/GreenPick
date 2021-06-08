@@ -30,17 +30,3 @@ $(document).ready(() => {
     })
   });
 });
-
-// let getCategoryById = (categoryId) => {
-//     let result;
-//     categories.forEach(category => {
-//       if(category._id.equals(categoryId)) {
-//         result = category;
-//       }
-//     });
-//     return result;
-//   }
-// data.forEach(app => {
-//   let category = getCategoryById(app.category);
-//
-// }
