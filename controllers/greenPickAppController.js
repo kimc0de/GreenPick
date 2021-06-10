@@ -1,7 +1,7 @@
 const GreenPickApp = require("../models/greenPickApp");
 const User = require("../models/user");
 const { respondNoResourceFound, redirectIfUnauthorized } = require("./errorController");
-const { categories } = require('../categories');
+const Category = require("../models/category");
 
 module.exports = {
   renderNewApp: async (req, res) => {
@@ -19,8 +19,8 @@ module.exports = {
       }
     }
 
-    res.render("newApp", {
-      categories: categories,
+    res.render("greenPickApp/newApp", {
+      categories: await Category.find({}),
       app: editApp
     });
   },
@@ -43,7 +43,7 @@ module.exports = {
       await User.findByIdAndUpdate(userId, {
         $addToSet: { apps: savedApp }
       });
-      res.render("confirmation");
+      res.render("greenPickApp/confirmation");
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);
@@ -69,7 +69,7 @@ module.exports = {
       const app = await GreenPickApp.findByIdAndUpdate(appId, {
         $set: appParams
       }, { new: true });
-      res.render("confirmation", { app: app });
+      res.render("greenPickApp/confirmation", { app: app });
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);
@@ -103,10 +103,13 @@ module.exports = {
     let id = req.params.id;
     try {
       const app = await GreenPickApp.findById(id);
-      res.render('./detailsPage',
+      const category = await Category.findById(app.category);
+
+      res.render('./greenPickApp/detailsPage',
         {
           id: id,
           app: app,
+          categoryClass: category.className,
           appImg: '/images/brandlogos/tooGoodToGo.png' // will be replaced when we implement images
         });
     } catch (error) {

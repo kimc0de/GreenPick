@@ -26,5 +26,6 @@
   #category-slider .badge {
     min-width: 120px;
     padding: 0.25rem 1rem;
+    border: none;
   }
 }
