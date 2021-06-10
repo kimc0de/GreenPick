@@ -1,4 +1,4 @@
-import request from './request';
+const request = require('./request');
 const app = require("../main");
 const mongoDB = require("mongoose");
 const GreenPickApp = require("../models/greenPickApp");
@@ -6,7 +6,7 @@ const Category = require("../models/category");
 const categories = require("../categories.json");
 
 describe("Test category slider", () => {
-  beforeAll((done) => {
+  beforeAll(async () => {
     mongoDB.connect(process.env.MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true});
     let insertCategories = async (array) => {
       const categoryMap = array.map(async (c) => {
@@ -15,7 +15,7 @@ describe("Test category slider", () => {
       await Promise.all(categoryMap);
       console.log("++ The amount of categories seeded: " + categoryMap.length);
     }
-    insertCategories(categories).then(done());
+    await insertCategories(categories);
   });
 
   afterAll((done) => {
