@@ -1,40 +1,39 @@
 const User = require("../models/user");
+const Category = require("../models/category");
 const { respondNoResourceFound, redirectIfUnauthorized } = require("./errorController");
 const passport = require("passport");
 const GreenPickApp = require("../models/greenPickApp");
 
 module.exports = {
 
-  getAllApps: (req, res, next) => {
+  getAllApps: async (req, res, next) => {
     redirectIfUnauthorized(req, res);
 
-    GreenPickApp.find({ userId: req.user._id }, (error, apps) => {
-      try {
-        req.data = apps;
-      }
-      catch (error) {
-        console.log(error);
-        respondNoResourceFound(req, res);
-      }
-      next();
-    })
+    try {
+      let apps = await GreenPickApp.find({ userId: req.user._id });
+      req.data = apps;
+    } catch (error) {
+      console.error(error);
+      respondNoResourceFound(req, res);
+    }
+    next();
   },
 
-  renderProfile: (req, res, next) => {
+  renderProfile: async (req, res, next) => {
     let userId = req.user._id;
 
-    User.findById(userId)
-      .then(user => {
-        res.render("user/profile", {
-          user: user,
-          data: req.data,
-          app: req.app,
-        });
-      })
-      .catch(error => {
-        console.log(`Error :${error.message}`);
-        next(error);
+    try {
+      const user = await User.findById(userId);
+      res.render("user/profile", {
+        user: user,
+        categories: await Category.find({}),
+        data: req.data,
+        app: req.app,
       });
+    } catch (error) {
+      console.log(`Error :${error.message}`);
+      next(error);
+    }
   },
 
   renderLogin: (req, res) => {
