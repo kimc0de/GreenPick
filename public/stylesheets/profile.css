@@ -53,6 +53,7 @@
 
 #profile-page .toggle-button.active{
   background-color: var(--button-primary);
+  outline: none;
   color:white;
 }
 
