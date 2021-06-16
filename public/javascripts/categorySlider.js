@@ -1,6 +1,5 @@
 $(document).ready(() => {
   const homeContent = $("#homepage-apps").html();
-  console.log(homeContent);
 
   $("#category-slider button").click(function () {
     $("#category-slider button").addClass("inactive");

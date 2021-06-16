@@ -24,25 +24,35 @@
   <div class="app-lists">
 
     <div id="your-apps" class="app-list active">
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-row justify-content-center">
         <p class="number-of-apps"><%= data.length %></p>
         <p class="text-in-app-list">Wonderful! Those are sustainable apps that you have added.</p>
       </div>
 
-      <div class="row" id="app-card">
-        <% data.forEach(app => { %>
-        <div class="col col-lg-6 col-md-6 col-sm-12" onclick="location.href='/app/<%= app._id %>';">
-          <div class="card-body category-<%= app.category %> d-flex">
+      <div class="row justify-content-center" id="app-card">
+        <% let getCategoryById = (categoryId) => {
+          let result;
+          categories.forEach(category => {
+            if(category._id.equals(categoryId)) {
+              result = category;
+            }
+          });
+          return result;
+        }
+        data.forEach(app => { 
+          let category = getCategoryById(app.category); %>
+        <div class="col-12 col-md-6 col-lg-5" onclick="location.href='/app/<%= app._id %>';">
+          <div class="card-body <%= category.className %> d-flex">
             <img class="app-logo" src="/images/brandlogos/goodOnYou.png">
-            <div>
+            <div class="w-100">
               <h2><%= app.name; %></h2>
               <p class="app-slogan"><%= app.slogan %></p>
 
-              <div class="row">
-                <div class="badge rounded-pill text-light category-badge-<%= app.category %>"><%= app.category %></div>
-                <div class="d-flex flex-row app-card-buttons" >
-                <a id="app-card-button" href="<%= `/app/${app._id}/edit` %>"> Edit </a>
-                <a id="app-card-button" href="<%= `/app/${app._id}/delete?_method=DELETE` %>"
+              <div class="row justify-content-between mx-0">
+                <div class="badge rounded-pill text-light <%= category.badgeName %>"><%= category.name %></div>
+                <div class="d-flex flex-row" >
+                <a class="app-card-button" href="<%= `/app/${app._id}/edit` %>"> Edit </a>
+                <a class="app-card-button" href="<%= `/app/${app._id}/delete?_method=DELETE` %>"
                    onclick="return confirm('Are you sure you want to delete this application?')">
                   Delete
                 </a>
@@ -57,7 +67,7 @@
     </div>
 
     <div id="favourite-apps" class="app-list">
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-row justify-content-center">
         <p class="number-of-apps">0 </p>
         <p class="text-in-app-list"> Fantastic! These are your favourite Green picks!</p>
       </div>
