@@ -34,12 +34,17 @@
     <link href="/stylesheets/confirmation.css" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/editProfile.css" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/profile.css" rel="stylesheet" type="text/css" />
+
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@next"></script>
   </head>
 
   <body>
       <div>
-          <%- include ('./components/header') %>
           <%- include('./flash'); -%>
+          <div id="app">
+            <component-header v-bind="loggedIn"></component-header>
+          </div>          
           <main> <%- body %> </main>
       </div>
 
@@ -57,6 +62,9 @@
       const inputElement = document.querySelector("input[type='file']");
       const pond = FilePond.create(inputElement);
     </script>
+
+    <!-- Vue component -->
+    <script src="/javascripts/App.js"></script>
   </body>
 </html>
 
