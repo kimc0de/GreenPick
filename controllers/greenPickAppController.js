@@ -116,5 +116,40 @@ module.exports = {
       console.error(error);
       respondNoResourceFound(req, res);
     }
+  },
+
+  /**
+   * Green Pick app adding favourite app
+   */ 
+  addFavouriteApp: async (req, res, next) => {
+
+    redirectIfUnauthorized(req, res);
+
+    let userId = req.user._id;
+    let appId = req.params.id;
+
+    try {
+      await User.findByIdAndUpdate(userId, {
+        $addToSet: { favApps: appId }
+      });
+    } catch (error) {
+      console.error(error);
+      respondNoResourceFound(req, res);
+    }
+
+    next();
+  },
+
+  /**
+   * Green Pick app getting favourite app
+   */ 
+  getFavouriteApps: async (req, res) => {
+    try {
+      let favApps = await GreenPickApp.find({ userId: req.user._id });
+      req.data = favApps;
+    } catch (error) {
+      console.error(error);
+      respondNoResourceFound(req, res);
+    }
   }
 }

@@ -147,34 +147,5 @@ module.exports = {
     let redirectPath = res.locals.redirect;
     if (redirectPath) res.redirect(redirectPath);
     else next();
-  },
-
-  addFavouriteApp: async (req, res, next) => {
-
-    redirectIfUnauthorized(req, res);
-
-    let userId = req.user._id;
-    let appId = req.params.id;
-
-    try {
-      await User.findByIdAndUpdate(userId, {
-        $addToSet: { favApps: appId }
-      });
-    } catch (error) {
-      console.error(error);
-      respondNoResourceFound(req, res);
-    }
-
-    next();
-  },
-
-  getFavouriteApps: async (req, res) => {
-    try {
-      let favApps = await GreenPickApp.find({ userId: req.user._id });
-      req.data = favApps;
-    } catch (error) {
-      console.error(error);
-      respondNoResourceFound(req, res);
-    }
   }
 };

@@ -39,6 +39,6 @@ module.exports = {
         message: "Unknown Error."
       };
     }
-    //res.json(errorObject);
+    res.json(errorObject);
   },
 }
