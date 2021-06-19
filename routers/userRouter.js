@@ -3,6 +3,7 @@ const router = require('express').Router();
 
 // Profile
 router.get("/user", userController.getAllApps, userController.renderProfile);
+router.post("/app/:id", userController.addFavouriteApp, userController.getFavouriteApps);
 
 // Signup
 router.get("/signup", userController.renderSignUp);
