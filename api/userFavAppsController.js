@@ -1,17 +1,16 @@
 const httpStatus = require('http-status-codes');
-const GreenPickApp = require("../models/greenPickApp");
-const User = require("../models/user");
-const {respondNoResourceFound} = require("../controllers/errorController");
+const {respondNoResourceFound, redirectIfUnauthorized} = require("../controllers/errorController");
 
 module.exports = {
   
   getFavouriteAppsByUser: async (req, res, next) => {
-    
     try {
-      let userName = await User.find({ username: req.params.username});
-      res.locals.favApps = await GreenPickApp.find({ username: userName});
-      next()
-      
+      if (!req.user) {
+        redirectIfUnauthorized(req, res)
+      } else {
+        res.locals = req.user.favApps
+        next()
+      }
     } catch (error) {
       console.log(error);
       respondNoResourceFound(req, res);
