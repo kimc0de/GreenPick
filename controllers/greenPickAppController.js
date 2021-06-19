@@ -132,6 +132,7 @@ module.exports = {
       await User.findByIdAndUpdate(userId, {
         $addToSet: { favApps: appId }
       });
+      res.redirect("back");
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);
