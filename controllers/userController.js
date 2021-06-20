@@ -3,6 +3,7 @@ const Category = require("../models/category");
 const { respondNoResourceFound, redirectIfUnauthorized } = require("./errorController");
 const passport = require("passport");
 const GreenPickApp = require("../models/greenPickApp");
+const httpStatus = require('http-status-codes');
 
 module.exports = {
 
@@ -12,6 +13,7 @@ module.exports = {
     try {
       let apps = await GreenPickApp.find({ userId: req.user._id });
       req.data = apps;
+      res.locals.apps = apps;
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);
@@ -94,7 +96,7 @@ module.exports = {
         if (error.message.includes('username')) {
           errormessage += `This username is taken.`;
         }
-        if (errormessage.length == 0) {
+        if (errormessage.length === 0) {
           errormessage = `Failed to create user account. ➥${error.message}.`;
         }
         req.flash("error", errormessage);
@@ -116,7 +118,7 @@ module.exports = {
       });
   },
 
-  renderEdit: (req, res, next) => {
+  renderEdit: (req, res) => {
     redirectIfUnauthorized(req, res);
     res.render('user/edit', {
       user: req.user
@@ -132,7 +134,7 @@ module.exports = {
     User.findByIdAndUpdate(userId, {
       $set: userParams
     })
-      .then(user => {
+      .then(() => {
         res.locals.redirect = `/user/edit`;
         req.flash("success", `Your changes have been saved!`);
         next();
@@ -147,5 +149,12 @@ module.exports = {
     let redirectPath = res.locals.redirect;
     if (redirectPath) res.redirect(redirectPath);
     else next();
+  },
+
+  respondJSON: async (req, res) => {
+    res.json({
+      status: httpStatus.OK,
+      data: res.locals.apps
+    });
   }
 };
