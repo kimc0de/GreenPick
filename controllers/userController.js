@@ -3,17 +3,15 @@ const Category = require("../models/category");
 const { respondNoResourceFound, redirectIfUnauthorized } = require("./errorController");
 const passport = require("passport");
 const GreenPickApp = require("../models/greenPickApp");
-const httpStatus = require('http-status-codes');
 
 module.exports = {
-
   getAllApps: async (req, res, next) => {
     redirectIfUnauthorized(req, res);
 
     try {
       let apps = await GreenPickApp.find({ userId: req.user._id });
       req.data = apps;
-      res.locals.apps = apps;
+      console.log(req.data);
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);
@@ -149,12 +147,5 @@ module.exports = {
     let redirectPath = res.locals.redirect;
     if (redirectPath) res.redirect(redirectPath);
     else next();
-  },
-
-  respondJSON: async (req, res) => {
-    res.json({
-      status: httpStatus.OK,
-      data: res.locals.apps
-    });
   }
 };
