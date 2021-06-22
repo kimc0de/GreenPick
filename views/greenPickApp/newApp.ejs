@@ -1,5 +1,5 @@
 <% let action = app ? `/app/${app.id}/edit?_method=PUT` : `/user/add` %>
-<form action="<%= action %>" method="post">
+<form action="<%= action %>" enctype="multipart/form-data" method="post">
   <div id="new-app" class="container">
 
     <% let title = app ? "Edit your GreenPick" : "Add a new GreenPick" %>
@@ -50,14 +50,12 @@
     </section>
 
     <section id="app-image">
-      <input type="file" class="filepond"
-             name="filepond"
-             data-max-file-size="3MB"
-             data-max-files="1">
+      <label class="question-field" for="upload-image">App logo:</label>
+      <input type="file" name="image"id="upload-image" accept="image/*">
     </section>
 
     <section id="complete-submit" class="row justify-content-between no-gutters">
-      <div class="col pl-0 pl-md-2 mb-2">
+      <div class="col pl-0 <% if (app) { %>pl-md-2<% } %> mb-2">
         <% let saveLabel = app ? "Save" : "Complete" %>
         <button id="complete-button" class="btn btn-lg btn-primary w-100" type="submit"><%= saveLabel %></button>
       </div>

@@ -2,6 +2,7 @@ const GreenPickApp = require("../models/greenPickApp");
 const User = require("../models/user");
 const { respondNoResourceFound, redirectIfUnauthorized } = require("./errorController");
 const Category = require("../models/category");
+const fs = require("fs");
 
 module.exports = {
   renderNewApp: async (req, res) => {
@@ -27,18 +28,26 @@ module.exports = {
 
   saveGreenPickApp: async (req, res) => {
     let userId = req.user._id;
-
-    let newApp = new GreenPickApp({
-      category: req.body.category,
-      name: req.body.name,
-      website: req.body.website,
-      slogan: req.body.slogan,
-      description: req.body.description,
-      //image: Buffer
-      userId: userId
-    });
+    
+    let appImg;
+    if (req.file) {
+      let imgBuffer = fs.readFileSync(req.file.path);
+      appImg = `data:${req.file.mimetype};base64,` + imgBuffer.toString('base64');
+    } else {
+      appImg = '/images/greenpick/logo3.svg';
+    }
 
     try {
+      let newApp = new GreenPickApp({
+        category: req.body.category,
+        name: req.body.name,
+        website: req.body.website,
+        slogan: req.body.slogan,
+        description: req.body.description,
+        image: appImg,
+        userId: userId
+      });
+
       let savedApp = await newApp.save();
       await User.findByIdAndUpdate(userId, {
         $addToSet: { apps: savedApp }
@@ -110,7 +119,7 @@ module.exports = {
           id: id,
           app: app,
           categoryClass: category.className,
-          appImg: '/images/brandlogos/tooGoodToGo.png' // will be replaced when we implement images
+          appImg: app.image
         });
     } catch (error) {
       console.error(error);

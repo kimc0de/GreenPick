@@ -1,9 +1,10 @@
 const greenPickAppController = require('../controllers/greenPickAppController');
+const upload = require('../imageUpload');
 const router = require('express').Router();
 
 // routes to add new app page
 router.get("/user/add", greenPickAppController.renderNewApp);
-router.post("/user/add", greenPickAppController.saveGreenPickApp);
+router.post("/user/add", upload.single('image'), greenPickAppController.saveGreenPickApp);
 
 // routes to edit app page
 router.get("/app/:id/edit", greenPickAppController.renderNewApp);
