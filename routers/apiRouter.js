@@ -4,7 +4,7 @@ const router = require("express").Router(),
     userController = require('../controllers/homeController');
 
 router.get("/api/category/:categoryName", categoryController.getAppsByCategory, categoryController.respondJSON);
-router.get("/api/user/apps", userController.getAllApps, userAppsController.respondJSON);
+router.get("/api/user/apps", userAppsController.getAllApps, userAppsController.respondJSON);
 
 router.use(categoryController.errorJSON);
 
