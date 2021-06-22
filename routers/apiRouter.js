@@ -4,6 +4,5 @@ const router = require("express").Router(),
 
 router.get("/api/category/:categoryName", categoryController.getAppsByCategory, categoryController.respondJSON);
 router.get("/api/favourites", userFavAppsController.getFavouriteAppsByUser, userFavAppsController.respondJSON);
-// router.use(categoryController.errorJSON);
 
 module.exports = router;
