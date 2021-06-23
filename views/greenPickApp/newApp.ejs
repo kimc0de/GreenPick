@@ -14,52 +14,58 @@ let action = app ? `/app/${app.id}/edit?_method=PUT` : `/user/add`; %>
     </section>
 
     <section>
-      <label class="form-group question-field">Name of the application or brand: </label>
+      <h3 class="form-group question-field">Name of the application or brand: </h3>
       <input class="form-control" type="text" name="name" placeholder="...type here" required=""
       <% if (app) { %> value="<%= app.name %><% } %>">
     </section>
 
     <section>
-      <label class="form-group question-field">Where can users find it?</label>
+      <h3 class="form-group question-field">Where can users find it?</h3>
       <input class="form-control" type="text" name="website" placeholder="...type here" required=""
       <% if (app) { %> value="<%= app.website %><% } %>">
     </section>
 
     <section>
-      <label class="form-group question-field">What category does your app fit in?</label>
+      <h3 class="form-group question-field">What category does your app fit in?</h3>
       <select class="form-select category-dropdown" name="category">
         <% categories.forEach(category => {
           let selected = app && (app.category.equals(category._id)) ? 'selected="selected"' : ''; %>
           <option value="<%= (category._id) %>" <%= selected %>>
             <% let categoryName = category.name.charAt(0).toUpperCase() + category.name.slice(1); %>
-            <%= categoryName %> 
+            <%= categoryName %>
             </option>
         <% }); %>
       </select>
     </section>
 
     <section id="app-slogan">
-      <label class="form-group question-field">Short description / Slogan: </label>
+      <h3 class="form-group question-field">Short description / Slogan: </h3>
       <input class="form-control" type="text" name="slogan" placeholder="...type here" maxlength="50" rows="2" required=""
       <% if (app) { %> value="<%= app.slogan %><% } %>">
     </section>
 
     <section id="app-description">
-      <label class="form-group question-field">More details about the application: </label>
+      <h3 class="form-group question-field">More details about the application: </h3>
       <textarea class="form-control" name="description" placeholder="...type here" rows="4"
       required=""><% if (app) { %><%= app.description %><% } %></textarea>
     </section>
 
     <section id="app-image">
-    <% if (appImageExists) { %>
       <h3 class="h4">App logo:</h3>
+      <div id='image-field' class="background">
+    <% if (appImageExists) { %>
       <div class="background">
         <img src="<%= app.image %>" class="app-logo" alt="Your app logo for <%= app.name %>">
       </div>
     <% } else { %>
-      <label class="question-field" for="upload-image">App logo:</label>
-      <input type="file" name="image"id="upload-image" accept="image/*" required="">
-    <% } %>
+      <input type="file" name="image" id="upload-image" class="input-file" accept="image/*" required="">
+      <label class="question-field" for="upload-image"><span>Upload image</span></label>
+      <svg width="40" height="29" viewBox="0 0 40 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M33.3272 9.8654C31.4785 3.42132 24.0097 -0.491283 16.6451 1.12633C10.8898 2.3905 6.71076 6.74294 6.28018 11.9214C2.19368 12.511 -0.572818 15.8877 0.101093 19.4634C0.700168 22.6422 3.8481 24.9702 7.53004 24.9574H13.7794V22.7702H7.53004C4.76894 22.7702 2.53059 20.8116 2.53059 18.3956C2.53059 15.9797 4.76894 14.0211 7.53004 14.0211C8.22036 14.0211 8.77991 13.5315 8.77991 12.9275C8.77366 7.49153 13.8049 3.08038 20.0174 3.07498C25.3953 3.07026 30.0247 6.39695 31.065 11.0136C31.1677 11.4746 31.5952 11.8268 32.1273 11.8885C35.5443 12.3143 37.9198 15.0832 37.4333 18.073C36.9963 20.7577 34.3766 22.7566 31.2774 22.7702H26.278V24.9574H31.2774C36.1094 24.9446 40.0146 21.5068 39.9999 17.2788C39.9877 13.7594 37.2346 10.7006 33.3272 9.8654Z" fill="#456E4F"/>
+        <path d="M19.1413 14.3383L14.1418 18.7128L15.9042 20.2548L18.7788 17.7504V28.2383H21.2786V17.7504L24.1407 20.2548L25.9031 18.7128L20.9036 14.3383C20.4161 13.9142 19.6288 13.9142 19.1413 14.3383Z" fill="#456E4F"/>
+      </svg>
+      <% } %>
+      </div>
     </section>
 
     <section id="complete-submit" class="row justify-content-between no-gutters">
