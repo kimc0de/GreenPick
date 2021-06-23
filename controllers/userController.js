@@ -5,13 +5,13 @@ const passport = require("passport");
 const GreenPickApp = require("../models/greenPickApp");
 
 module.exports = {
-
   getAllApps: async (req, res, next) => {
     redirectIfUnauthorized(req, res);
 
     try {
       let apps = await GreenPickApp.find({ userId: req.user._id });
       req.data = apps;
+      console.log(req.data);
     } catch (error) {
       console.error(error);
       respondNoResourceFound(req, res);
@@ -94,7 +94,7 @@ module.exports = {
         if (error.message.includes('username')) {
           errormessage += `This username is taken.`;
         }
-        if (errormessage.length == 0) {
+        if (errormessage.length === 0) {
           errormessage = `Failed to create user account. ➥${error.message}.`;
         }
         req.flash("error", errormessage);
@@ -116,7 +116,7 @@ module.exports = {
       });
   },
 
-  renderEdit: (req, res, next) => {
+  renderEdit: (req, res) => {
     redirectIfUnauthorized(req, res);
     res.render('user/edit', {
       user: req.user
@@ -132,7 +132,7 @@ module.exports = {
     User.findByIdAndUpdate(userId, {
       $set: userParams
     })
-      .then(user => {
+      .then(() => {
         res.locals.redirect = `/user/edit`;
         req.flash("success", `Your changes have been saved!`);
         next();
