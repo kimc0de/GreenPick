@@ -1,14 +1,15 @@
-<% let action = app ? `/app/${app.id}/edit?_method=PUT` : `/user/add` %>
-<form action="<%= action %>" enctype="multipart/form-data" method="post">
+<% let appImageExists = app && app.image && app.image.substring(0,4) == 'data';
+let action = app ? `/app/${app.id}/edit?_method=PUT` : `/user/add`; %>
+<form action="<%= action %>" <% if (!appImageExists) { %>enctype="multipart/form-data" <% } %>method="post">
   <div id="new-app" class="container">
 
     <% let title = app ? "Edit your GreenPick" : "Add a new GreenPick" %>
 
     <section>
       <div class="row justify-content-center align-items-center">
-        <img src="/images/greenpick/logo3.svg">
+        <img src="/images/greenpick/logo3.svg" class="title-logo">
         <h2 class="title-div"><%= title %></h2>
-        <img src="/images/greenpick/logo3.svg">
+        <img src="/images/greenpick/logo3.svg" class="title-logo">
       </div>
     </section>
 
@@ -50,8 +51,15 @@
     </section>
 
     <section id="app-image">
+    <% if (appImageExists) { %>
+      <h3 class="h4">App logo:</h3>
+      <div class="background">
+        <img src="<%= app.image %>" class="app-logo" alt="Your app logo for <%= app.name %>">
+      </div>
+    <% } else { %>
       <label class="question-field" for="upload-image">App logo:</label>
-      <input type="file" name="image"id="upload-image" accept="image/*">
+      <input type="file" name="image"id="upload-image" accept="image/*" required="">
+    <% } %>
     </section>
 
     <section id="complete-submit" class="row justify-content-between no-gutters">

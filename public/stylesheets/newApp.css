@@ -22,11 +22,26 @@
   margin: 0;
 }
 
-#new-app img {
+#new-app img.title-logo {
   width: 35px;
   height: 35px;
   margin: 0px 7px;
   vertical-align: center;
+}
+
+#new-app img.app-logo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+}
+
+#new-app #app-image .background {
+  width: 100%;
+  background-color: var(--input-primary);
+  border-radius: 5px;
+  padding: 1rem;
 }
 
 #new-app input,
@@ -62,30 +77,6 @@
   border-radius: 20px;
 }
 
-/**
- * FilePond Custom Styles
- */
-.filepond--drop-label {
-  color: var(--text-primary);
-}
-
-.filepond--label-action {
-  text-decoration-color: #babdc0;
-}
-
-.filepond--panel-root {
-  border-radius: 10px;
-  background-color: var(--input-primary);
-  height: 1em;
-}
-
-.filepond--item-panel {
-  background-color: #595e68;
-}
-
-.filepond--drip-blob {
-  background-color: #7f8a9a;
-}
 
 @media (max-width: 576px) {
   #new-app .question-field {
