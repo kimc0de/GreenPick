@@ -1,5 +1,6 @@
 const httpStatus = require('http-status-codes');
 const {respondNoResourceFound, redirectIfUnauthorized} = require("../controllers/errorController");
+const GreenPickApp = require("../models/greenPickApp");
 
 module.exports = {
   
@@ -8,7 +9,8 @@ module.exports = {
       if (!req.user) {
         redirectIfUnauthorized(req, res)
       } else {
-        res.locals = req.user.favApps
+        let favApps = req.user.favApps;
+        res.locals = await GreenPickApp.find({apps: favApps._id});
         next()
       }
     } catch (error) {
