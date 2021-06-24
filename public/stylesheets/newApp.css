@@ -88,11 +88,6 @@
   cursor: pointer;
 }
 
-#new-app .input-file:focus + label,
-#new-app .input-file + label:hover {
-    outline: var(--button-primary) auto 5px;
-}
-
 #image-field {
   text-align: center;
 }
