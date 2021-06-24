@@ -25,20 +25,4 @@ module.exports = {
       data: res.locals
     });
   },
-
-  errorJSON: (error, req, res) => {
-    let errorObject;
-    if (error) {
-      errorObject = {
-        status: httpStatus.INTERNAL_SERVER_ERROR,
-        message: error.message
-      };
-    } else {
-      errorObject = {
-        status: httpStatus.INTERNAL_SERVER_ERROR,
-        message: "Unknown Error."
-      };
-    }
-    res.json(errorObject);
-  },
 }
