@@ -32,7 +32,6 @@
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.2",
     "express-validator": "5.3.1",
-    "filepond": "^4.27.1",
     "http-status-codes": "^2.1.4",
     "method-override": "^3.0.0",
     "mongoose": "^5.12.7",
