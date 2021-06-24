@@ -22,7 +22,7 @@ $(document).ready(() => {
             `
             <div class="col col-lg-4 col-md-6 col-12" onclick="location.href='/app/${app._id}';">
               <div class="card-body category-${categoryName} d-flex">
-                <img class="app-logo" src="/images/brandlogos/goodOnYou.png">
+                <img class="app-logo" src="${app.image}">
                 <div>
                   <h2>${app.name}</h2>
                   <p class="app-slogan">${app.slogan}</p>

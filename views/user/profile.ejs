@@ -43,7 +43,7 @@
           let category = getCategoryById(app.category); %>
         <div class="col-12 col-md-6 col-lg-6" onclick="location.href='/app/<%= app._id %>';">
           <div class="card-body <%= category.className %> d-flex">
-            <img class="app-logo" src="/images/brandlogos/goodOnYou.png">
+            <img class="app-logo" src="<%= app.image %>">
             <div class="w-100">
               <h2><%= app.name; %></h2>
               <p class="app-slogan"><%= app.slogan %></p>
