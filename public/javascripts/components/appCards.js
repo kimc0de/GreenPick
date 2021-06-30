@@ -1,19 +1,7 @@
 const app = Vue.createApp({});
 
 app.component('app-card', {
-  data() {
-    return {
-      apps: []
-    }
-  },
-
-  created: function () {
-    fetch(`/api/category/all`)
-      .then(response => response.json())
-      .then(json => {
-        this.apps = json.data.apps;
-      });
-  },
+  props: ['apps'],
 
   template: `
   <div v-for="app in apps" class="col col-lg-4 col-md-6 col-12" onclick="location.href='/app/{{ app._id }}';">

@@ -1,29 +1,9 @@
 app.component('component-category', {
-  data() {
-    return {
-      categories: []
-    }
-  },
-
-  created: function() {
-    fetch(`/api/categories`)
-      .then(response => response.json())
-      .then(res => {
-        this.categories = res.data.categories;
-      });
-  },
+  props: ['categories'],
 
   methods: {
     getActive(categoryName) {
-      this.categories.forEach( (category) => {
-        let element = document.getElementById(category.name);
-        if (categoryName !== category.name) {
-          element.classList.add('inactive');
-        }
-        if (categoryName === category.name) {
-          element.classList.remove('inactive');
-        }
-      })
+      this.$parent.getActive(categoryName);
     }
   },
 
