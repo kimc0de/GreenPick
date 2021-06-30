@@ -5,6 +5,17 @@ const { respondNoResourceFound } = require("../controllers/errorController");
 
 module.exports = {
 
+  getAllCategories: async (req, res, next) => {
+    try {
+      let categories = await Category.find({});
+      res.locals.categories = categories;
+      next();
+    }
+    catch(error) {
+      respondNoResourceFound(req, res);
+    }
+  },
+
   getAppsByCategory: async (req, res, next) => {
     try {
       if (req.params.categoryName == 'all') {
