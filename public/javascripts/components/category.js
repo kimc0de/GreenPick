@@ -1,6 +1,4 @@
-const appCategory = Vue.createApp({});
-
-appCategory.component('component-category', {
+app.component('component-category', {
   data() {
     return {
       categories: []
@@ -31,10 +29,9 @@ appCategory.component('component-category', {
 
   template:
     `
-      <button :id="category.name" v-for="category in categories" :name="category.name" class="badge" :class="category.badgeName" @click='getActive(category.name)'>
+      <button :id="category.name" v-for="category in categories" :name="category.name" class="badge" 
+      :class="category.badgeName" @click='getActive(category.name)'>
         {{category.name}}
       </button>
   `
 });
-
-appCategory.mount('#category-slider');

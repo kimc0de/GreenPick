@@ -1,26 +1,5 @@
 <div id="homepage">
   <%- include('./components/searchBar') %>
 
-  <div class="container mt-3">
-    <h2 id="categories-title">
-      Or choose one of our categories:
-    </h2>
-    <div id="category-slider">
-      <component-category></component-category>
-    </div>
-  </div>
-
-  <div class="container">
-    <h2 id="suggestedAppsHeader">
-      Suggested Apps:
-    </h2>
-    <div id="homepage-apps">
-      <div class="row" id="app-card">
-        <app-card
-          v-for="app in apps"
-          v-bind:app="app"
-          v-bind:key="app._id"></app-card>
-      </div>
-    </div>
-  </div>
+  <homepage-base></homepage-base>
 </div>
