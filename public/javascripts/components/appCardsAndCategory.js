@@ -26,16 +26,16 @@ app.component('homepage-base', {
       let selectedElement;
       this.categories.forEach((category) => {
         let element = document.getElementById(category.name);
-
+        //check which category is active and which are not, adjust class name
         if (categoryName !== category.name) {
           element.classList.add('inactive');
         }
         if (categoryName === category.name) {
-          selectedElement = element;
+          selectedElement = element; // save selected category for toggle filter
           element.classList.remove('inactive');
         }
       });
-
+      // if button doesnt have 'selected' class, add selected, run category filter
       if (!selectedElement.classList.contains("selected")) {
         selectedElement.classList.add("selected");
         fetch("/api/category/" + categoryName + '?format=json')
@@ -48,7 +48,7 @@ app.component('homepage-base', {
               this.apps = json.data.apps;
             }
           });
-      } else {
+      } else { // if press active button again, category filter will be reset, all apps will appear
         selectedElement.classList.remove("selected");
         this.categories.forEach((category) => {
           let element = document.getElementById(category.name);
