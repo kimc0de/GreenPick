@@ -1,19 +1,5 @@
 <div id="homepage">
   <%- include('./components/searchBar') %>
 
-  <div class="container mt-3">
-    <h2 id="categories-title">
-      Or choose one of our categories:
-    </h2>
-    <%- include('./components/categorySlider') %>
-  </div>
-
-  <div class="container">
-    <h2 id="suggestedAppsHeader">
-      Suggested Apps:
-    </h2>
-    <div id="homepage-apps">
-      <%- include ('./components/appCard') %>
-    </div>
-  </div>
+  <homepage-base></homepage-base>
 </div>
