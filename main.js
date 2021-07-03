@@ -8,7 +8,10 @@ const express = require('express'),
   passport = require("passport"),
   User = require("./models/user"),
   expressValidator = require("express-validator"),
-  methodOverride = require("method-override");
+  methodOverride = require("method-override"),
+  GoogleStrategy = require('passport-google-oauth20').Strategy;
+
+require('dotenv').config({path: __dirname + '/.env'});
 
 //set the view engine as ejs
 app.set("view engine", "ejs");
@@ -44,8 +47,32 @@ app.use(connectFlash());
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/google/greenpick",
+    userProfileURL: 'https://www.googleapis.com/oauth2/v3/userinfo'
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    User.findOrCreate({
+      googleId: profile.id,
+      username: profile.displayName
+    }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
 
 app.use((req, res, next) => {
   res.locals.flashMessages = req.flash();
