@@ -22,6 +22,10 @@
   color: var(--text-placeholder);
 }
 
+#category-slider .badge:focus {
+  outline: none;
+}
+
 /* desktop css*/
 @media (min-width: 768px) {
   #category-slider .badge {
