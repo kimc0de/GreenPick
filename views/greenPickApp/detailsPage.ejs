@@ -25,8 +25,9 @@
           Website
         </button>
     </div>
+    <%if (loggedIn) {%>
     <div id="heart">
-      <form action="/app/<%=app._id%>" method="POST">
+      <form class="d-inline-block" action="/app/<%=app._id%>" method="POST">
         <button class="btn btn-outline-primary mr-3" name="favourite" value="favourite">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart"
             viewBox="0 0 16 16">
@@ -36,6 +37,7 @@
         </button>
       </form>
     </div>
+    <% } %>
     <div id="back-button">
       <a onclick="window.history.back();">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left pt-1"
