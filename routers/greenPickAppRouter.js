@@ -15,6 +15,6 @@ router.delete("/app/:id/delete", greenPickAppController.deleteGreenPickApp);
 
 // route to details page
 router.get("/app/:id", greenPickAppController.getDetailsPage);
-router.post("/app/:id", greenPickAppController.addFavouriteApp, greenPickAppController.getFavouriteApps);
+router.post("/app/:id", greenPickAppController.addFavouriteApp);
 
 module.exports = router;
