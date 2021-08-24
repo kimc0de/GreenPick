@@ -4,3 +4,5 @@ Green Pick is the application we build as part of our course WTAT Summer Semeste
 
 Green Pick provides eco-friendly, sustainable alternatives to everyday products.
 
+See it at: https://wtat1-group-03.herokuapp.com/
+
