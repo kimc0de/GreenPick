@@ -36,7 +36,6 @@ jobs:
   notify:
     name: Notify on Slack
     runs-on: ubuntu-latest
-    needs: [build]
     if: ${{ github.base_ref == 'main' && github.event_name == 'pull_request'}}
     steps:
       - uses: abinoda/slack-action@master
